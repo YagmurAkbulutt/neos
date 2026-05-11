@@ -19,7 +19,7 @@ export default function ContactSection() {
   const serviceTypes = lang === 'tr' ? serviceTypesTR : serviceTypesEN
 
   const [status, setStatus] = useState<Status>('idle')
-  const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', port: '', service: '', vessel: '', eta: '', message: '' })
+  const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', service: '', message: '' })
 
   const handle = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -44,8 +44,8 @@ export default function ContactSection() {
     },
     {
       label: l.email,
-      value: 'info@neosmaritime.com',
-      href: 'mailto:info@neosmaritime.com',
+      value: 'agency@neosmaritime.com',
+      href: 'mailto:agency@neosmaritime.com',
       icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 0 0 2.22 0L21 8M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z" /></svg>,
     },
     {
@@ -114,31 +114,12 @@ export default function ContactSection() {
                     <input name="phone" value={form.phone} onChange={handle} placeholder={l.phonePlaceholder} className={inputClass} />
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-white/40 text-xs font-medium uppercase tracking-wider mb-1.5 block">{l.portOfCall}</label>
-                    <select name="port" value={form.port} onChange={handle} className={inputClass}>
-                      <option value="">{l.selectPort}</option>
-                      {ports.map((p) => <option key={p} value={p}>{p}</option>)}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="text-white/40 text-xs font-medium uppercase tracking-wider mb-1.5 block">{l.serviceType}</label>
-                    <select name="service" value={form.service} onChange={handle} className={inputClass}>
-                      <option value="">{l.selectService}</option>
-                      {serviceTypes.map((s) => <option key={s} value={s}>{s}</option>)}
-                    </select>
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-white/40 text-xs font-medium uppercase tracking-wider mb-1.5 block">{l.vessel}</label>
-                    <input name="vessel" value={form.vessel} onChange={handle} placeholder={l.vesselPlaceholder} className={inputClass} />
-                  </div>
-                  <div>
-                    <label className="text-white/40 text-xs font-medium uppercase tracking-wider mb-1.5 block">{l.eta}</label>
-                    <input name="eta" type="date" value={form.eta} onChange={handle} className={inputClass} />
-                  </div>
+                <div>
+                  <label className="text-white/40 text-xs font-medium uppercase tracking-wider mb-1.5 block">{l.serviceType}</label>
+                  <select name="service" value={form.service} onChange={handle} className={inputClass}>
+                    <option value="">{l.selectService}</option>
+                    {serviceTypes.map((s) => <option key={s} value={s}>{s}</option>)}
+                  </select>
                 </div>
                 <div>
                   <label className="text-white/40 text-xs font-medium uppercase tracking-wider mb-1.5 block">{l.message}</label>

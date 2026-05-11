@@ -98,12 +98,12 @@ export default function Footer() {
                 </span>
                 +90 216 356 06 64
               </a>
-              <a href="mailto:info@neosmaritime.com"
+              <a href="mailto:agency@neosmaritime.com"
                 className="flex items-center gap-2.5 text-white/40 hover:text-brand text-sm transition-colors group">
                 <span className="w-7 h-7 rounded-lg bg-white/5 group-hover:bg-brand/15 flex items-center justify-center transition-colors flex-shrink-0">
                   <MailIcon />
                 </span>
-                info@neosmaritime.com
+                agency@neosmaritime.com
               </a>
               <div className="flex items-start gap-2.5 text-white/30 text-sm">
                 <span className="w-7 h-7 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 text-white/30">
@@ -204,14 +204,9 @@ export default function Footer() {
       {/* ── Bottom bar ───────────────────── */}
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 py-5">
-          <span className="text-white/20 text-xs tracking-wide">
+          <span className="text-white/50 text-xs tracking-wide">
             © {new Date().getFullYear()} NEOS Maritime — {f.copyright}
           </span>
-          <div className="flex items-center gap-1 text-white/20 text-xs">
-            <a href="#" className="hover:text-white/50 transition-colors px-3 py-1">{f.privacy}</a>
-            <span className="text-white/10">·</span>
-            <a href="#" className="hover:text-white/50 transition-colors px-3 py-1">{f.terms}</a>
-          </div>
         </div>
       </div>
 

@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #fc5000;
+  --color-brand-dark: #d94400;
+  --color-brand-light: #ff7033;
+  --color-navy: #0a1628;
+  --color-navy-light: #0f2040;
+  --color-navy-deep: #060e1a;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+@keyframes scroll-drop {
+  0% { transform: translateY(0); opacity: 1; }
+  80% { opacity: 0.3; }
+  100% { transform: translateY(12px); opacity: 0; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradient-pan {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.animate-scroll-drop {
+  animation: scroll-drop 1.6s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease forwards;
+}
+
+@keyframes slide-track {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.slider-track {
+  animation: slide-track 32s linear infinite;
+}
+
+.slider-track:hover {
+  animation-play-state: paused;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #060e1a 0%, #0a1628 40%, #0d2040 70%, #060e1a 100%);
+  background-size: 300% 300%;
+  animation: gradient-pan 12s ease infinite;
+}
+
+.section-pad {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 1024px) {
+  .section-pad {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}

@@ -1,0 +1,67 @@
+'use client'
+
+import Image from 'next/image'
+import type { SlideImage } from '@/lib/services'
+
+export default function ServiceImageSlider({ images }: { images: SlideImage[] }) {
+  const track = [...images, ...images]
+
+  return (
+    <div className="relative overflow-hidden bg-white py-10 border-y border-gray-100">
+      {/* Keyframes scoped to this component — guaranteed regardless of CSS pipeline */}
+      <style>{`
+        @keyframes neos-slide {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+      `}</style>
+
+      {/* Left fade */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-40 z-10
+                      bg-gradient-to-r from-white to-transparent" />
+      {/* Right fade */}
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-40 z-10
+                      bg-gradient-to-l from-white to-transparent" />
+
+      {/* Top orange accent */}
+      <div className="absolute top-0 left-0 right-0 h-0.5
+                      bg-gradient-to-r from-transparent via-brand to-transparent" />
+
+      {/* Scrolling track */}
+      <div
+        className="flex gap-5 w-max"
+        style={{ animation: 'neos-slide 28s linear infinite' }}
+        onMouseEnter={(e) => {
+          (e.currentTarget as HTMLDivElement).style.animationPlayState = 'paused'
+        }}
+        onMouseLeave={(e) => {
+          (e.currentTarget as HTMLDivElement).style.animationPlayState = 'running'
+        }}
+      >
+        {track.map((img, i) => (
+          <div
+            key={i}
+            className="group relative flex-shrink-0 rounded-2xl overflow-hidden shadow-md
+                       hover:shadow-xl transition-shadow duration-300"
+            style={{ width: '320px', height: '220px' }}
+          >
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              quality={75}
+              sizes="320px"
+            />
+            <div className="absolute inset-0 bg-navy/15 group-hover:bg-navy/0
+                            transition-colors duration-300" />
+          </div>
+        ))}
+      </div>
+
+      {/* Bottom accent */}
+      <div className="absolute bottom-0 left-0 right-0 h-0.5
+                      bg-gradient-to-r from-transparent via-brand/40 to-transparent" />
+    </div>
+  )
+}

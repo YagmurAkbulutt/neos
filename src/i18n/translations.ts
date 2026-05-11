@@ -106,8 +106,8 @@ const t = {
       subtitle:
         'From the Bosphorus Strait to the Eastern Mediterranean, our network covers every major Turkish port and shipyard.',
       imageCaption: 'across all Turkish coastlines',
-      note: "Don't see your port? We cover all Turkish ports —",
-      noteLink: 'get in touch',
+      note: 'Ready to discuss your port call?',
+      noteLink: 'Get in touch',
       regions: [
         {
           region: 'Marmara & Straits',
@@ -306,8 +306,8 @@ const t = {
       subtitle:
         "İstanbul Boğazı'ndan Doğu Akdeniz'e uzanan ağımız, Türkiye'nin tüm büyük liman ve tersanelerini kapsamaktadır.",
       imageCaption: "Türkiye'nin tüm kıyılarında",
-      note: 'Limanınızı listede göremiyorsanız merak etmeyin, tüm Türk limanlarına hizmet veriyoruz —',
-      noteLink: 'iletişime geçin',
+      note: 'Liman çağrınız için detaylı bilgi almak ister misiniz?',
+      noteLink: 'Bize ulaşın',
       regions: [
         {
           region: 'Marmara & Boğazlar',

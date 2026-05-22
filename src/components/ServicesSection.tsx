@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { useLanguage } from '@/context/language'
@@ -62,22 +61,7 @@ export default function ServicesSection() {
   const s = tr.services
 
   return (
-    <>
-      {/* Image divider */}
-      <div className="relative h-64 md:h-80 overflow-hidden">
-        <Image src="/gggg.jpeg" alt="Container port at dusk with cranes" fill className="object-cover object-center" quality={80} />
-        <div className="absolute inset-0 bg-navy/55" />
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-brand" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white">
-            <p className="text-sm font-semibold tracking-widest uppercase text-brand mb-2">{s.bannerOverline}</p>
-            <p className="text-2xl md:text-3xl font-bold tracking-tight max-w-xl mx-auto px-5">{s.bannerText}</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Grid */}
-      <section id="services" className="section-pad bg-slate-50">
+    <section id="services" className="section-pad bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="inline-block text-brand text-sm font-semibold tracking-widest uppercase mb-3">{s.overline}</span>
@@ -104,7 +88,6 @@ export default function ServicesSection() {
             ))}
           </div>
         </div>
-      </section>
-    </>
+    </section>
   )
 }

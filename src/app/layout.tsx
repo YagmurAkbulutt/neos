@@ -18,7 +18,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: 'NEOS Maritime — Ship Agency in Turkey',
   description:
-    'Professional ship agency services across all Turkish ports, shipyards, and the Turkish Straits. Available 24/7. Established 2007.',
+    'Professional ship agency services across Turkish ports, shipyards, and the Turkish Straits. Available 24/7. Established 2018 with 23 years of industry experience.',
   keywords:
     'ship agency Turkey, gemi acentesi, maritime agency Istanbul, Turkish ports, husbandry services',
 }

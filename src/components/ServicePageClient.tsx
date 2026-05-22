@@ -84,9 +84,9 @@ export default function ServicePageClient({ service, related }: Props) {
                 <span className="inline-block text-brand text-sm font-semibold tracking-widest uppercase mb-3">{ui.overlineOverview}</span>
                 <h2 className="text-3xl md:text-4xl font-bold text-navy tracking-tight mb-6 leading-snug">{ui.overviewTitle}</h2>
                 <p className="text-slate-600 text-lg leading-relaxed mb-8">{overview}</p>
-                <a href="/#contact" className="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold px-7 py-3.5 rounded-xl transition-colors duration-200">
+                <Link href="/#contact" className="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold px-7 py-3.5 rounded-xl transition-colors duration-200">
                   {ui.overviewCta}
-                </a>
+                </Link>
               </div>
 
               <div className="lg:col-span-2 bg-slate-50 rounded-2xl p-7 border border-gray-100">
@@ -201,9 +201,9 @@ export default function ServicePageClient({ service, related }: Props) {
             </h2>
             <p className="text-slate-500 text-lg mb-8 leading-relaxed">{ui.ctaSub}</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="/#contact" className="bg-brand hover:bg-brand-dark text-white font-semibold px-8 py-4 rounded-xl transition-colors duration-200 w-full sm:w-auto text-center">
+              <Link href="/#contact" className="bg-brand hover:bg-brand-dark text-white font-semibold px-8 py-4 rounded-xl transition-colors duration-200 w-full sm:w-auto text-center">
                 {ui.ctaBtn}
-              </a>
+              </Link>
               <a href="tel:+902163560664" className="border border-navy/20 hover:border-brand text-navy hover:text-brand font-semibold px-8 py-4 rounded-xl transition-colors duration-200 w-full sm:w-auto text-center">
                 +90 216 356 06 64
               </a>

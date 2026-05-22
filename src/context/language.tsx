@@ -25,10 +25,14 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>('en')
 
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem('neos-lang') as Lang | null
-      if (saved === 'en' || saved === 'tr') setLangState(saved)
-    } catch {}
+    const timer = window.setTimeout(() => {
+      try {
+        const saved = localStorage.getItem('neos-lang') as Lang | null
+        if (saved === 'en' || saved === 'tr') setLangState(saved)
+      } catch {}
+    }, 0)
+
+    return () => window.clearTimeout(timer)
   }, [])
 
   const setLang = (l: Lang) => {

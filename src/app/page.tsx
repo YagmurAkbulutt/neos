@@ -7,6 +7,7 @@ import HeroSection from '@/components/HeroSection'
 import StatsSection from '@/components/StatsSection'
 import ServicesSection from '@/components/ServicesSection'
 import WhyNeosSection from '@/components/WhyNeosSection'
+import TestimonialsSection from '@/components/TestimonialsSection'
 import PortsSection from '@/components/PortsSection'
 import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
@@ -17,7 +18,7 @@ function TankerDivider() {
   const q = tr.tankerQuote
   return (
     <div className="relative h-56 md:h-72 overflow-hidden">
-      <Image src="/gg.jpeg" alt="Container ship at sea" fill className="object-cover object-center" quality={80} />
+      <Image src="/neos.jpeg" alt="Container ship at sea" fill className="object-cover object-center" quality={80} />
       <div className="absolute inset-0 bg-navy/60" />
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-brand" />
       <div className="absolute top-0 left-0 right-0 h-1 bg-brand/30" />
@@ -40,6 +41,7 @@ export default function Home() {
         <StatsSection />
         <ServicesSection />
         <WhyNeosSection />
+        <TestimonialsSection />
         <PortsSection />
         <TankerDivider />
         <ContactSection />

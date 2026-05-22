@@ -3,10 +3,8 @@
 import { useState, type FormEvent } from 'react'
 import { useLanguage } from '@/context/language'
 
-const turkishPortsEN = ['Istanbul', 'Derince / Kocaeli', 'Izmit', 'Gemlik', 'Bandırma', 'Izmir', 'Aliağa', 'Mersin', 'Iskenderun', 'Antalya', 'Samsun', 'Trabzon', 'Zonguldak', 'Bodrum', 'Marmaris', 'Other']
-const turkishPortsTR = ['İstanbul', 'Derince / Kocaeli', 'İzmit', 'Gemlik', 'Bandırma', 'İzmir', 'Aliağa', 'Mersin', 'İskenderun', 'Antalya', 'Samsun', 'Trabzon', 'Zonguldak', 'Bodrum', 'Marmaris', 'Diğer']
-const serviceTypesEN = ['Ship Agency', 'Husbandry', 'Crew Services', 'Customs Clearance', 'Port Dues', 'Bunkering / Provisions', 'Emergency']
-const serviceTypesTR = ['Gemi Acenteliği', 'Husbandry', 'Mürettebat Hizmetleri', 'Gümrük İşlemleri', 'Liman Harçları', 'Yakıt / Kumanya', 'Acil']
+const serviceTypesEN = ['Port Agency Service', 'Straits Agency Service', 'Shipyard Agency Service', 'Husbandry Agency Service', 'Protecting Agency Service', 'LSD Work & Materials Supply', 'Emergency']
+const serviceTypesTR = ['Liman Acenteliği Hizmeti', 'Boğaz Acenteliği Hizmeti', 'Tersane Acenteliği Hizmeti', 'Husbandry Acenteliği Hizmeti', 'Koruyucu Acentelik Hizmeti', 'LSD İşleri ve Malzeme Tedariki', 'Acil']
 
 type Status = 'idle' | 'sending' | 'sent' | 'error'
 
@@ -15,7 +13,6 @@ export default function ContactSection() {
   const c = tr.contact
   const l = c.labels
 
-  const ports = lang === 'tr' ? turkishPortsTR : turkishPortsEN
   const serviceTypes = lang === 'tr' ? serviceTypesTR : serviceTypesEN
 
   const [status, setStatus] = useState<Status>('idle')
@@ -50,7 +47,7 @@ export default function ContactSection() {
     },
     {
       label: l.office,
-      value: l.officeValue,
+      value: `${l.offices[0].label}: ${l.offices[0].address} · ${l.offices[1].label}: ${l.offices[1].address}`,
       href: '#',
       icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" /></svg>,
     },

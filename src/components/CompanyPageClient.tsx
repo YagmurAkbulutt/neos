@@ -4,9 +4,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useLanguage } from '@/context/language'
 import { companyPages, companyPageSlugs, type CompanyPageSlug } from '@/lib/companyPages'
+import { companyPath, contactPath } from '@/lib/routes'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import WhatsAppButton from '@/components/WhatsAppButton'
+import ScrollReveal from '@/components/ScrollReveal'
 
 type Props = {
   slug: CompanyPageSlug
@@ -67,7 +68,7 @@ export default function CompanyPageClient({ slug }: Props) {
               {navPages.map((item) => (
                 <Link
                   key={item.slug}
-                  href={`/who-we-are/${item.slug}`}
+                  href={companyPath(item.slug, lang)}
                   className={`px-4 py-2 rounded-xl text-sm font-semibold border transition-colors ${
                     item.slug === slug
                       ? 'bg-brand text-white border-brand'
@@ -81,7 +82,7 @@ export default function CompanyPageClient({ slug }: Props) {
 
             {page.values ? (
               <div className="grid lg:grid-cols-12 gap-8 items-start">
-                <aside className="lg:col-span-4 lg:sticky lg:top-28">
+                <ScrollReveal from="left" className="lg:col-span-4 lg:sticky lg:top-28">
                   <div className="bg-navy rounded-2xl p-7 text-white">
                     <div className="text-brand text-xs font-bold tracking-widest uppercase mb-4">
                       {page.overline}
@@ -96,9 +97,9 @@ export default function CompanyPageClient({ slug }: Props) {
                       ))}
                     </div>
                   </div>
-                </aside>
+                </ScrollReveal>
 
-                <div className="lg:col-span-8">
+                <ScrollReveal from="right" className="lg:col-span-8">
                   <div className="divide-y divide-gray-100 bg-white border border-gray-100 rounded-2xl overflow-hidden">
                     {page.values.map((value, index) => (
                       <article key={value.title} className="grid md:grid-cols-12 gap-5 p-6 md:p-8">
@@ -114,11 +115,11 @@ export default function CompanyPageClient({ slug }: Props) {
                       </article>
                     ))}
                   </div>
-                </div>
+                </ScrollReveal>
               </div>
             ) : (
               <div className="grid lg:grid-cols-12 gap-8 items-start">
-                <aside className="lg:col-span-4 lg:sticky lg:top-28">
+                <ScrollReveal from="left" className="lg:col-span-4 lg:sticky lg:top-28">
                   <div className="bg-navy rounded-2xl p-7 text-white overflow-hidden relative">
                     <div className="absolute top-0 left-0 right-0 h-1 bg-brand" />
                     <div className="text-brand text-xs font-bold tracking-widest uppercase mb-4">
@@ -134,42 +135,44 @@ export default function CompanyPageClient({ slug }: Props) {
                       ))}
                     </div>
                   </div>
-                </aside>
+                </ScrollReveal>
 
-                <article className="lg:col-span-8 bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
-                  {isAboutPage ? (
-                    <div className="p-7 md:p-10">
-                      <div className="flex flex-col gap-6">
+                <ScrollReveal from="right" className="lg:col-span-8">
+                  <article className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+                    {isAboutPage ? (
+                      <div className="p-7 md:p-10">
+                        <div className="flex flex-col gap-6">
+                          {page.paragraphs.map((paragraph) => (
+                            <p key={paragraph} className="text-slate-600 text-lg leading-relaxed">
+                              {paragraph}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="flex flex-col gap-4 p-7 md:p-10">
                         {page.paragraphs.map((paragraph) => (
-                          <p key={paragraph} className="text-slate-600 text-lg leading-relaxed">
-                            {paragraph}
-                          </p>
+                          <div key={paragraph} className="flex gap-4">
+                            <div className="mt-1 flex-shrink-0 w-7 h-7 rounded-full bg-brand/10 text-brand flex items-center justify-center">
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                              </svg>
+                            </div>
+                            <p className="text-slate-600 text-lg leading-relaxed">
+                              {paragraph}
+                            </p>
+                          </div>
                         ))}
                       </div>
-                    </div>
-                  ) : (
-                    <div className="flex flex-col gap-4 p-7 md:p-10">
-                      {page.paragraphs.map((paragraph) => (
-                        <div key={paragraph} className="flex gap-4">
-                          <div className="mt-1 flex-shrink-0 w-7 h-7 rounded-full bg-brand/10 text-brand flex items-center justify-center">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                          </div>
-                          <p className="text-slate-600 text-lg leading-relaxed">
-                            {paragraph}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </article>
+                    )}
+                  </article>
+                </ScrollReveal>
               </div>
             )}
 
             <div className="mt-10 flex justify-end">
               <Link
-                href="/#contact"
+                href={contactPath(lang)}
                 className="inline-flex items-center justify-center bg-brand hover:bg-brand-dark text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200"
               >
                 {tr.nav.contact}
@@ -180,7 +183,6 @@ export default function CompanyPageClient({ slug }: Props) {
       </main>
 
       <Footer />
-      <WhatsAppButton />
     </>
   )
 }

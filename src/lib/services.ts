@@ -13,19 +13,66 @@ export type ServiceItem = {
   related: string[]
 }
 
+const portAgencyImages: SlideImage[] = [
+  { src: '/hizmetler/liman-acenteligi-01.jpg', alt: 'Port agency operations at Turkish port' },
+  { src: '/hizmetler/liman-acenteligi-02.jpg', alt: 'Vessel port call coordination' },
+  { src: '/hizmetler/liman-acenteligi-03.jpg', alt: 'Ship alongside during port agency service' },
+  { src: '/hizmetler/liman-acenteligi-04.jpg', alt: 'Harbour operation for port agency service' },
+  { src: '/hizmetler/liman-acenteligi-05.jpg', alt: 'Port terminal and vessel operations' },
+  { src: '/hizmetler/liman-acenteligi-06.jpg', alt: 'Port agency field operation' },
+]
+
+const straitsAgencyImages: SlideImage[] = [
+  { src: '/hizmetler/bogaz-acenteligi-01.jpg', alt: 'Straits agency transit coordination' },
+  { src: '/hizmetler/bogaz2.JPG', alt: 'Vessel transit through Turkish Straits' },
+  { src: '/hizmetler/bogaz3.JPG', alt: 'Turkish Straits passage operation' },
+  { src: '/hizmetler/bogaz4.JPG', alt: 'Ship passing through the strait' },
+  { src: '/hizmetler/bogaz5.JPG', alt: 'Bosphorus transit agency support' },
+  { src: '/hizmetler/bogaz6.JPG', alt: 'Strait navigation support service' },
+  { src: '/hizmetler/bogaz7.JPG', alt: 'Vessel underway in Turkish Straits' },
+  { src: '/hizmetler/bogaz8.JPG', alt: 'Straits agency vessel monitoring' },
+]
+
+const husbandryAgencyImages: SlideImage[] = [
+  { src: '/hizmetler/husbandry-acenteligi-01.jpg', alt: 'Husbandry agency vessel support service' },
+]
+
+const protectingAgencyImages: SlideImage[] = [
+  { src: '/hizmetler/koruyucu-acentelik-01.jpg', alt: 'Protecting agency supervision and representation' },
+]
+
+const lsdWorkMaterialsSupplyImages: SlideImage[] = [
+  { src: '/hizmetler/l-s-d-isleri-01.jpg', alt: 'Lashing securing and dunnaging operation' },
+  { src: '/hizmetler/l-s-d-isleri-02.jpg', alt: 'Cargo securing work on vessel' },
+  { src: '/hizmetler/l-s-d-isleri-03.jpg', alt: 'Dunnaging and cargo preparation service' },
+  { src: '/hizmetler/l-s-d-isleri-04.jpg', alt: 'Lashing work for cargo safety' },
+  { src: '/hizmetler/l-s-d-isleri-05.jpg', alt: 'Securing materials prepared for cargo operation' },
+  { src: '/hizmetler/l-s-d-isleri-06.jpg', alt: 'Cargo lashing equipment and field work' },
+  { src: '/hizmetler/l-s-d-isleri-07.jpg', alt: 'Lashing and securing service at port' },
+  { src: '/hizmetler/l-s-d-isleri-08.jpg', alt: 'Cargo support and dunnaging application' },
+  { src: '/hizmetler/l-s-d-isleri-09.jpg', alt: 'Lashing service for heavy cargo' },
+  { src: '/hizmetler/l-s-d-isleri-10.jpg', alt: 'Securing work performed on cargo' },
+  { src: '/hizmetler/l-s-d-isleri-11.jpg', alt: 'Dunnaging materials and cargo handling support' },
+  { src: '/hizmetler/l-s-d-isleri-12.jpg', alt: 'Cargo securing operation detail' },
+  { src: '/hizmetler/l-s-d-isleri-13.jpg', alt: 'Lashing team cargo safety work' },
+  { src: '/hizmetler/l-s-d-isleri-14.jpg', alt: 'Cargo fastening and securing service' },
+  { src: '/hizmetler/l-s-d-isleri-15.jpg', alt: 'Port cargo lashing operation' },
+  { src: '/hizmetler/l-s-d-isleri-16.jpg', alt: 'Lashing equipment application' },
+  { src: '/hizmetler/l-s-d-isleri-17.jpg', alt: 'Secured cargo on vessel deck' },
+  { src: '/hizmetler/l-s-d-isleri-18.jpg', alt: 'Dunnaging and lashing field operation' },
+  { src: '/hizmetler/l-s-d-isleri-19.jpg', alt: 'Completed lashing securing and dunnaging work' },
+  { src: '/hizmetler/malzeme-tedarigi-01.jpg', alt: 'Materials supply for vessel operations' },
+  { src: '/hizmetler/malzeme-tedarigi-02.jpg', alt: 'Ship materials supply service' },
+  { src: '/hizmetler/malzeme-tedarigi-03.jpg', alt: 'Delivered materials for maritime service' },
+]
+
 export const services: ServiceItem[] = [
   {
     slug: 'port-agency',
     title: 'Port Agency Service',
     tagline: 'Your single point of contact for every Turkish port call.',
-    heroImage: '/port-aerial.jpeg',
-    images: [
-      { src: '/port-aerial.jpeg', alt: 'Aerial view of container port' },
-      { src: '/port-top.jpeg',    alt: 'Container port from above' },
-      { src: '/gggg.jpeg',        alt: 'Container port operations at dusk' },
-      { src: '/ship-crane.jpeg',  alt: 'Port crane and vessel operations' },
-      { src: '/ship-hero.jpeg',   alt: 'Container ship at sea' },
-    ],
+    heroImage: '/hizmetler/liman-acenteligi-01.jpg',
+    images: portAgencyImages,
     overview:
       'NEOS Maritime provides comprehensive port agency services for vessels of all types and sizes across Turkish ports and terminals. From pre-arrival coordination to final departure, our experienced team manages every formality, liaison, and operational requirement so your vessel moves efficiently and on schedule.',
     highlights: [
@@ -88,14 +135,8 @@ export const services: ServiceItem[] = [
     slug: 'straits-agency',
     title: 'Straits Agency Service',
     tagline: 'Reliable transit coordination for the Turkish Straits.',
-    heroImage: '/ship-hero.jpeg',
-    images: [
-      { src: '/ship-hero.jpeg',   alt: 'Container ship transiting at sea' },
-      { src: '/gg.jpeg',          alt: 'Vessel underway' },
-      { src: '/ggg.jpeg',         alt: 'Aerial vessel view' },
-      { src: '/ship-tanker.jpeg', alt: 'Vessel receiving assistance at sea' },
-      { src: '/g.jpeg',           alt: 'Navigation bridge operations' },
-    ],
+    heroImage: '/hizmetler/bogaz-acenteligi-01.jpg',
+    images: straitsAgencyImages,
     overview:
       'NEOS Maritime coordinates Bosphorus and Dardanelles strait transits with close attention to timing, documentation, authority communication, and operational updates. Our team keeps owners, operators, and masters informed throughout the passage and remains available around the clock for any change in schedule or requirement.',
     highlights: [
@@ -158,7 +199,7 @@ export const services: ServiceItem[] = [
     slug: 'shipyard-agency',
     title: 'Shipyard Agency Service',
     tagline: 'Dedicated agency support for Turkish shipyard calls.',
-    heroImage: '/g.jpeg',
+    heroImage: '/hizmetler/liman-acenteligi-06.jpg',
     images: [
       { src: '/g.jpeg',           alt: "Ship officer at vessel's navigation console" },
       { src: '/gg.jpeg',          alt: 'Vessel at sea' },
@@ -228,14 +269,8 @@ export const services: ServiceItem[] = [
     slug: 'husbandry-agency',
     title: 'Husbandry Agency Service',
     tagline: 'Everything your vessel needs while in port, handled.',
-    heroImage: '/gggg.jpeg',
-    images: [
-      { src: '/gggg.jpeg',        alt: 'Container terminal at dusk' },
-      { src: '/port-top.jpeg',    alt: 'Aerial container port logistics' },
-      { src: '/ship-crane.jpeg',  alt: 'Terminal crane and vessel' },
-      { src: '/port-aerial.jpeg', alt: 'Port logistics operations' },
-      { src: '/ggg.jpeg',         alt: 'Vessel at sea' },
-    ],
+    heroImage: '/hizmetler/husbandry-acenteligi-01.jpg',
+    images: husbandryAgencyImages,
     overview:
       'Our husbandry agency service handles the vessel\'s non-commercial requirements during port, anchorage, strait, or shipyard calls. Whether the request is crew change, medical support, spare parts, provisions, cash-to-master, technical attendance, or urgent local assistance, NEOS Maritime acts as the vessel\'s trusted shoreside operator.',
     highlights: [
@@ -298,14 +333,8 @@ export const services: ServiceItem[] = [
     slug: 'protecting-agency',
     title: 'Protecting Agency Service',
     tagline: 'Independent representation for owners and charterers.',
-    heroImage: '/ggg.jpeg',
-    images: [
-      { src: '/gggg.jpeg',        alt: 'Port at dusk with cranes' },
-      { src: '/ggg.jpeg',         alt: 'Vessel navigating at sea' },
-      { src: '/ship-hero.jpeg',   alt: 'Container vessel' },
-      { src: '/port-top.jpeg',    alt: 'Port from above' },
-      { src: '/port-aerial.jpeg', alt: 'Aerial port view' },
-    ],
+    heroImage: '/hizmetler/koruyucu-acentelik-01.jpg',
+    images: protectingAgencyImages,
     overview:
       'At NEOS Maritime & Shipping Agency, we offer comprehensive Protecting Agency Services to safeguard the interests of shipowners and operators during port calls across Turkey. Acting as your trusted local partner, we ensure your vessel\'s operations run smoothly, efficiently, and in full compliance with regulations. With our deep local expertise and commitment to excellence, NEOS Maritime & Shipping Agency is dedicated to delivering reliable and efficient Protecting Agency Services that give you peace of mind.',
     highlights: [
@@ -369,14 +398,8 @@ export const services: ServiceItem[] = [
     slug: 'lsd-work-materials-supply',
     title: 'L/S/D Work and Materials Supply',
     tagline: 'Lashing, securing, dunnaging, and certified cargo support.',
-    heroImage: '/gg.jpeg',
-    images: [
-      { src: '/gg.jpeg',          alt: 'Vessel underway at sea' },
-      { src: '/ship-tanker.jpeg', alt: 'Tanker receiving provisions' },
-      { src: '/ggg.jpeg',         alt: 'Aerial view of vessel' },
-      { src: '/ship-hero.jpeg',   alt: 'Container ship at sea' },
-      { src: '/gggg.jpeg',        alt: 'Port operations at dusk' },
-    ],
+    heroImage: '/hizmetler/l-s-d-isleri-01.jpg',
+    images: lsdWorkMaterialsSupplyImages,
     overview:
       'At NEOS Maritime & Shipping Agency, we provide comprehensive Lashing, Securing, and Dunnaging (L/S/D) solutions to ensure the safe handling and transport of your cargo. Partnering with the most experienced and certified teams, we deliver top-quality services tailored to all cargo types at ports across Turkey.',
     highlights: [

@@ -1,8 +1,11 @@
 'use client'
 
+import Link from 'next/link'
 import { useState } from 'react'
 import { useLanguage } from '@/context/language'
 import { TurkeyPortsMap } from '@/components/TurkeyPortsMap'
+import { contactPath } from '@/lib/routes'
+import ScrollReveal from '@/components/ScrollReveal'
 
 const PORT_NAMES = [
   'İstanbul', 'Kocaeli', 'Tekirdağ', 'Bandırma', 'Çanakkale',
@@ -29,42 +32,46 @@ export default function PortsSection() {
     <section id="ports" className="bg-navy overflow-hidden">
 
       {/* ── Header ──────────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-20 pb-10">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-          <div>
-            <span className="inline-block text-brand text-sm font-semibold tracking-widest uppercase mb-3">
-              {p.overline}
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.1]">
-              {p.title}
-            </h2>
-          </div>
-          <p className="text-white/45 text-base leading-relaxed max-w-sm lg:text-right">
-            {p.subtitle}
-          </p>
-        </div>
-
-        {/* Region pill counters */}
-        <div className="flex flex-wrap gap-3 mt-10">
-          {regionStats.map(r => (
-            <div
-              key={r.label}
-              className="flex items-center gap-2 bg-white/6 border border-white/10 rounded-full px-4 py-2"
-            >
-              <span className="w-2 h-2 rounded-full bg-brand" />
-              <span className="text-white/70 text-sm font-medium">{r.label}</span>
-              <span className="text-brand text-sm font-bold">{r.count}</span>
+      <ScrollReveal from="bottom">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-20 pb-10">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            <div>
+              <span className="inline-block text-brand text-sm font-semibold tracking-widest uppercase mb-3">
+                {p.overline}
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.1]">
+                {p.title}
+              </h2>
             </div>
-          ))}
+            <p className="text-white/45 text-base leading-relaxed max-w-sm lg:text-right">
+              {p.subtitle}
+            </p>
+          </div>
+
+          {/* Region pill counters */}
+          <div className="flex flex-wrap gap-3 mt-10">
+            {regionStats.map(r => (
+              <div
+                key={r.label}
+                className="flex items-center gap-2 bg-white/6 border border-white/10 rounded-full px-4 py-2"
+              >
+                <span className="w-2 h-2 rounded-full bg-brand" />
+                <span className="text-white/70 text-sm font-medium">{r.label}</span>
+                <span className="text-brand text-sm font-bold">{r.count}</span>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
 
       {/* ── Turkey map ──────────────────────────────────────── */}
-      <div className="px-4 sm:px-8 lg:px-16 pb-4">
-        <div className="max-w-5xl mx-auto" style={{ filter: 'drop-shadow(0 8px 40px rgba(0,0,0,0.5))' }}>
-          <TurkeyPortsMap />
+      <ScrollReveal from="bottom" delay={100} duration={800}>
+        <div className="px-4 sm:px-8 lg:px-16 pb-4">
+          <div className="max-w-5xl mx-auto" style={{ filter: 'drop-shadow(0 8px 40px rgba(0,0,0,0.5))' }}>
+            <TurkeyPortsMap />
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
 
       {/* ── Scrolling port names ticker ─────────────────────── */}
       <div className="relative overflow-hidden border-t border-white/8 py-5">
@@ -105,9 +112,9 @@ export default function PortsSection() {
       <div className="pb-16 pt-6 text-center">
         <p className="text-white/30 text-sm">
           {p.note}{' '}
-          <a href="#contact" className="text-brand hover:text-brand-light font-semibold transition-colors">
+          <Link href={contactPath(lang)} className="text-brand hover:text-brand-light font-semibold transition-colors">
             {p.noteLink}
-          </a>
+          </Link>
         </p>
       </div>
 

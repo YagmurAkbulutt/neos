@@ -3,8 +3,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useLanguage } from '@/context/language'
+import { companyPath, contactPath, servicePath, type ServiceSlug } from '@/lib/routes'
 
-const servicesSlugs = [
+const servicesSlugs: ServiceSlug[] = [
   'port-agency', 'straits-agency', 'shipyard-agency',
   'husbandry-agency', 'protecting-agency', 'lsd-work-materials-supply',
 ]
@@ -44,7 +45,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 export default function Footer() {
-  const { tr } = useLanguage()
+  const { lang, tr } = useLanguage()
   const f = tr.footer
 
   return (
@@ -109,12 +110,35 @@ export default function Footer() {
                 <span className="w-7 h-7 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 text-white/30">
                   <PinIcon />
                 </span>
-                <span>
+                <span className="leading-relaxed">
                   <strong className="text-white/45 font-semibold">{tr.contact.labels.offices[0].label}</strong><br />
-                  {tr.contact.labels.offices[0].address}<br />
+                  {tr.contact.labels.offices[0].address}
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Caddebostan Mah. Ömerpaşa Sok. No 4 Daire 7 Kadıköy İstanbul')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-5 h-5 ml-1.5 rounded bg-white/5 hover:bg-brand/20 border border-white/10 hover:border-brand/40 text-brand transition-all duration-200 align-middle"
+                    title={lang === 'tr' ? 'Haritada Göster' : 'Show on Map'}
+                  >
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                    </svg>
+                  </a>
+                  <br />
                   <span className="block mt-2">
                     <strong className="text-white/45 font-semibold">{tr.contact.labels.offices[1].label}</strong><br />
                     {tr.contact.labels.offices[1].address}
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Mimar Sinan Mah. Eşref Bitlis Cd. No:273, Körfez, Kocaeli')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center w-5 h-5 ml-1.5 rounded bg-white/5 hover:bg-brand/20 border border-white/10 hover:border-brand/40 text-brand transition-all duration-200 align-middle"
+                      title={lang === 'tr' ? 'Haritada Göster' : 'Show on Map'}
+                    >
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                      </svg>
+                    </a>
                   </span>
                 </span>
               </div>
@@ -128,7 +152,7 @@ export default function Footer() {
               {f.services.map((s, i) => (
                 <li key={i}>
                   <Link
-                    href={`/services/${servicesSlugs[i]}`}
+                    href={servicePath(servicesSlugs[i], lang)}
                     className="text-white/40 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2 group"
                   >
                     <span className="w-0 group-hover:w-3 h-px bg-brand transition-all duration-200 overflow-hidden" />
@@ -162,10 +186,10 @@ export default function Footer() {
             <SectionLabel>{tr.nav.about}</SectionLabel>
             <ul className="flex flex-col gap-2.5 mb-8">
               {[
-                { label: tr.nav.whoWeAre, href: '/who-we-are/about-us' },
+                { label: tr.nav.whoWeAre, href: companyPath('about-us', lang) },
                 { label: tr.nav.ourService, href: '/#services' },
                 { label: tr.testimonials.overline, href: '/#testimonials' },
-                { label: tr.nav.contact, href: '/#contact' },
+                { label: tr.nav.contact, href: contactPath(lang) },
               ].map((link) => (
                 <li key={link.label}>
                   <Link
@@ -191,19 +215,6 @@ export default function Footer() {
               >
                 <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current flex-shrink-0">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
-              {/* WhatsApp */}
-              <a
-                href="https://wa.me/902163560664?text=Hello%20NEOS%20Maritime"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Chat on WhatsApp"
-                className="w-9 h-9 rounded-xl bg-white/5 hover:bg-[#25D366]/15 border border-white/10 hover:border-[#25D366]/40 text-white/40 hover:text-[#25D366] flex items-center justify-center transition-all duration-200"
-              >
-                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current flex-shrink-0">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.524 5.845L.057 23.617a.5.5 0 0 0 .614.682l5.975-1.566A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-4.993-1.36l-.358-.213-3.714.974.99-3.617-.233-.371A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
                 </svg>
               </a>
             </div>

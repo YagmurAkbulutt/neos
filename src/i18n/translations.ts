@@ -184,20 +184,20 @@ const t = {
       subtitle:
         'Send us your port call details and our operations team will respond within the hour — 24 hours a day, 7 days a week.',
       labels: {
-        phone: 'Phone / WhatsApp',
+        phone: 'Phone',
         email: 'Email',
         office: 'Office',
-        officeValue: 'Bağdat Cad. No:277/7, Kadıköy / İstanbul',
+        officeValue: 'Caddebostan Mah. Ömerpaşa Sok. No 4 Daire 7, Kadıköy / İstanbul',
         offices: [
           {
             label: 'Istanbul Head Quarter',
-            address: 'Bağdat Cad. No:277/7, Kadıköy / İstanbul',
+            address: 'Caddebostan Mah. Ömerpaşa Sok. No 4 Daire 7, Kadıköy / İstanbul',
             email: 'agency@neosmaritime.com',
             phone: '+90 216 356 06 64',
           },
           {
             label: 'Branch Office / DERINCE',
-            address: 'Yeniyalı Mah. Hızır Reis Cd. No:3 K:4, 41800 Körfez / Kocaeli',
+            address: 'CG İş Merkezi Mimar Sinan Mah. Eşref Bitlis Caddesi No 273 Daire 10, Yarımca / Kocaeli',
             email: 'agency@neosmaritime.com',
             phone: '+90 538 382 97 68',
           },
@@ -205,7 +205,7 @@ const t = {
         fullName: 'Full Name',
         company: 'Company',
         emailField: 'Email',
-        phoneField: 'Phone / WhatsApp',
+        phoneField: 'Phone',
         portOfCall: 'Port of Call',
         serviceType: 'Service Type',
         vessel: 'Vessel Name / IMO',
@@ -449,20 +449,20 @@ const t = {
       subtitle:
         'Talep detaylarınızı gönderin, operasyon ekibimiz en kısa sürede size geri dönecektir — günün 24 saati, haftanın 7 günü.',
       labels: {
-        phone: 'Telefon / WhatsApp',
+        phone: 'Telefon',
         email: 'E-posta',
         office: 'Ofis',
-        officeValue: 'Bağdat Cad. No:277/7, Kadıköy / İstanbul',
+        officeValue: 'Caddebostan Mah. Ömerpaşa Sok. No 4 Daire 7, Kadıköy / İstanbul',
         offices: [
           {
             label: 'İstanbul Merkez Ofis',
-            address: 'Bağdat Cad. No:277/7, Kadıköy / İstanbul',
+            address: 'Caddebostan Mah. Ömerpaşa Sok. No 4 Daire 7, Kadıköy / İstanbul',
             email: 'agency@neosmaritime.com',
             phone: '+90 216 356 06 64',
           },
           {
             label: 'Derince Şube Ofisi',
-            address: 'Yeniyalı Mah. Hızır Reis Cd. No:3 K:4, 41800 Körfez / Kocaeli',
+            address: 'CG İş Merkezi Mimar Sinan Mah. Eşref Bitlis Caddesi No 273 Daire 10, Yarımca / Kocaeli',
             email: 'agency@neosmaritime.com',
             phone: '+90 538 382 97 68',
           },
@@ -470,7 +470,7 @@ const t = {
         fullName: 'Ad Soyad',
         company: 'Şirket',
         emailField: 'E-posta',
-        phoneField: 'Telefon / WhatsApp',
+        phoneField: 'Telefon',
         portOfCall: 'Liman',
         serviceType: 'Hizmet Türü',
         vessel: 'Gemi Adı / IMO',

@@ -4,7 +4,13 @@ import Image from 'next/image'
 import type { SlideImage } from '@/lib/services'
 
 export default function ServiceImageSlider({ images }: { images: SlideImage[] }) {
-  const track = [...images, ...images]
+  if (images.length === 0) return null
+
+  const minimumSlides = 8
+  const repeatCount = Math.max(1, Math.ceil(minimumSlides / images.length))
+  const baseTrack = Array.from({ length: repeatCount }, () => images).flat()
+  const track = [...baseTrack, ...baseTrack]
+  const animationDuration = `${baseTrack.length * 6}s`
 
   return (
     <div className="relative overflow-hidden bg-white py-10 border-y border-gray-100">
@@ -30,7 +36,7 @@ export default function ServiceImageSlider({ images }: { images: SlideImage[] })
       {/* Scrolling track */}
       <div
         className="flex gap-5 w-max"
-        style={{ animation: 'neos-slide 28s linear infinite' }}
+        style={{ animation: `neos-slide ${animationDuration} linear infinite` }}
         onMouseEnter={(e) => {
           (e.currentTarget as HTMLDivElement).style.animationPlayState = 'paused'
         }}

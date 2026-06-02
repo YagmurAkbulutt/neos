@@ -26,7 +26,7 @@ export default function HeroSection() {
         className="absolute inset-0 w-full h-full object-cover z-10"
         aria-hidden="true"
       >
-        <source src="/herokisa.mp4" type="video/mp4" />
+        <source src="/herokisa2.mp4" type="video/mp4" />
       </video>
 
       {/* Overlays */}

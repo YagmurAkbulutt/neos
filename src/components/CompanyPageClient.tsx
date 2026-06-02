@@ -57,7 +57,7 @@ export default function CompanyPageClient({ slug }: Props) {
               {page.title}
             </h1>
             <p className="text-white/65 text-lg md:text-xl max-w-3xl leading-relaxed">
-              {page.lead}
+              {page.heroLead || page.lead}
             </p>
           </div>
         </section>
@@ -100,7 +100,10 @@ export default function CompanyPageClient({ slug }: Props) {
                 </ScrollReveal>
 
                 <ScrollReveal from="right" className="lg:col-span-8">
-                  <div className="divide-y divide-gray-100 bg-white border border-gray-100 rounded-2xl overflow-hidden">
+                  <p className="text-slate-600 text-lg leading-relaxed mb-8 font-medium">
+                    {page.lead}
+                  </p>
+                  <div className="divide-y divide-gray-100 bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
                     {page.values.map((value, index) => (
                       <article key={value.title} className="grid md:grid-cols-12 gap-5 p-6 md:p-8">
                         <div className="md:col-span-4">

@@ -2,89 +2,10 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import type { ReactNode } from 'react'
 import { useLanguage } from '@/context/language'
 import { services } from '@/lib/services'
 import { servicePath } from '@/lib/routes'
 import ScrollReveal from '@/components/ScrollReveal'
-
-function AnchorIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <circle cx="12" cy="5" r="3" />
-      <line x1="12" y1="22" x2="12" y2="8" />
-      <path d="M5 12H2a10 10 0 0 0 20 0h-3" />
-    </svg>
-  )
-}
-
-function StraitsIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <circle cx="12" cy="12" r="10" />
-      <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
-    </svg>
-  )
-}
-
-function ShipyardIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-    </svg>
-  )
-}
-
-function HusbandryIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <circle cx="12" cy="12" r="10" />
-      <circle cx="12" cy="12" r="4" />
-      <line x1="4.93" y1="4.93" x2="9.17" y2="9.17" />
-      <line x1="14.83" y1="14.83" x2="19.07" y2="19.07" />
-      <line x1="14.83" y1="9.17" x2="19.07" y2="4.93" />
-      <line x1="4.93" y1="19.07" x2="9.17" y2="14.83" />
-    </svg>
-  )
-}
-
-function ProtectingIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-    </svg>
-  )
-}
-
-function LsdIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <line x1="16.5" y1="9.4" x2="7.5" y2="4.21" />
-      <polygon points="12 22.08 12 12 3 6.92 3 17 12 22.08" />
-      <polygon points="12 22.08 21 17 21 6.92 12 12 12 22.08" />
-      <polygon points="12 12 21 6.92 12 1.84 3 6.92 12 12" />
-    </svg>
-  )
-}
-
-function getServiceIcon(slug: string): ReactNode {
-  switch (slug) {
-    case 'port-agency':
-      return <AnchorIcon />
-    case 'straits-agency':
-      return <StraitsIcon />
-    case 'shipyard-agency':
-      return <ShipyardIcon />
-    case 'husbandry-agency':
-      return <HusbandryIcon />
-    case 'protecting-agency':
-      return <ProtectingIcon />
-    case 'lsd-work-materials-supply':
-      return <LsdIcon />
-    default:
-      return <AnchorIcon />
-  }
-}
 
 export default function ServicesSection() {
   const { lang, tr } = useLanguage()
@@ -135,19 +56,12 @@ export default function ServicesSection() {
                       priority={i < 3}
                     />
                     {/* Multi-layered Premium Overlay */}
-                    <div className="absolute inset-0 bg-navy-deep/30 transition-opacity duration-500 group-hover:bg-navy-deep/15" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/70 to-navy-deep/10 transition-all duration-500 group-hover:via-navy-deep/80 group-hover:from-navy-deep/90" />
-                  </div>
-
-                  {/* Floating Glassmorphic Icon Badge */}
-                  <div className="relative z-10 self-start">
-                    <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md text-white flex items-center justify-center transition-all duration-300 group-hover:bg-brand group-hover:border-brand shadow-lg shadow-black/10">
-                      {getServiceIcon(item.slug)}
-                    </div>
+                    <div className="absolute inset-0 bg-navy-deep/15 transition-opacity duration-500 group-hover:bg-navy-deep/10" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/70 via-navy-deep/35 to-navy-deep/5 transition-all duration-500 group-hover:via-navy-deep/45 group-hover:from-navy-deep/75" />
                   </div>
 
                   {/* Text Contents at Bottom */}
-                  <div className="relative z-10 w-full mt-6">
+                  <div className="relative z-10 w-full mt-auto">
                     <h3 className="text-xl font-bold text-white mb-3 font-display tracking-tight group-hover:text-brand-light transition-colors duration-300">
                       {item.title}
                     </h3>

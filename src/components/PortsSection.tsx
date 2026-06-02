@@ -29,10 +29,28 @@ export default function PortsSection() {
   ]
 
   return (
-    <section id="ports" className="bg-navy overflow-hidden">
+    <section 
+      id="ports" 
+      className="relative bg-navy overflow-hidden"
+      style={{
+        background: "radial-gradient(ellipse at 50% 40%, #0f2040 0%, #0a1628 55%, #060e1a 100%)",
+      }}
+    >
+      {/* Tech grid */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.14]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+          maskImage: "radial-gradient(ellipse at center, black 40%, transparent 80%)",
+        }}
+      />
+      {/* Vignette */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(0,0,0,0.45)_100%)]" />
 
       {/* ── Header ──────────────────────────────────────────── */}
-      <ScrollReveal from="bottom">
+      <ScrollReveal from="bottom" className="relative z-10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-20 pb-10">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <div>
@@ -53,7 +71,7 @@ export default function PortsSection() {
             {regionStats.map(r => (
               <div
                 key={r.label}
-                className="flex items-center gap-2 bg-white/6 border border-white/10 rounded-full px-4 py-2"
+                className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 hover:border-brand/40 transition-colors duration-300"
               >
                 <span className="w-2 h-2 rounded-full bg-brand" />
                 <span className="text-white/70 text-sm font-medium">{r.label}</span>
@@ -65,51 +83,55 @@ export default function PortsSection() {
       </ScrollReveal>
 
       {/* ── Turkey map ──────────────────────────────────────── */}
-      <ScrollReveal from="bottom" delay={100} duration={800}>
+      <ScrollReveal from="bottom" delay={100} duration={800} className="relative z-10">
         <div className="px-4 sm:px-8 lg:px-16 pb-4">
-          <div className="max-w-5xl mx-auto" style={{ filter: 'drop-shadow(0 8px 40px rgba(0,0,0,0.5))' }}>
+          <div className="max-w-5xl mx-auto shadow-2xl shadow-black/50 rounded-2xl">
             <TurkeyPortsMap />
           </div>
         </div>
       </ScrollReveal>
 
       {/* ── Scrolling port names ticker ─────────────────────── */}
-      <div className="relative overflow-hidden border-t border-white/8 py-5">
-        <style>{`
-          @keyframes ports-ticker {
-            from { transform: translateX(0); }
-            to   { transform: translateX(-50%); }
-          }
-        `}</style>
-
-        {/* Fade masks */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-navy to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-navy to-transparent" />
-
-        <div
-          className="flex items-center w-max"
-          style={{ animation: 'ports-ticker 38s linear infinite' }}
-          onMouseEnter={e => (e.currentTarget.style.animationPlayState = 'paused')}
-          onMouseLeave={e => (e.currentTarget.style.animationPlayState = 'running')}
+      <div className="px-4 sm:px-8 lg:px-16">
+        <div 
+          className="max-w-5xl mx-auto relative z-10 overflow-hidden py-5"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+          }}
         >
-          {TICKER_ITEMS.map((name, i) => (
-            <div key={i} className="flex items-center flex-shrink-0">
-              <span
-                className="text-sm font-medium tracking-wide transition-colors px-5 cursor-default whitespace-nowrap"
-                style={{ color: hovered === name ? 'var(--color-brand)' : 'rgba(255,255,255,0.45)' }}
-                onMouseEnter={() => setHovered(name)}
-                onMouseLeave={() => setHovered(null)}
-              >
-                {name}
-              </span>
-              <span className="text-brand/35 text-xs select-none">·</span>
-            </div>
-          ))}
+          <style>{`
+            @keyframes ports-ticker {
+              from { transform: translateX(0); }
+              to   { transform: translateX(-50%); }
+            }
+          `}</style>
+
+          <div
+            className="flex items-center w-max"
+            style={{ animation: 'ports-ticker 38s linear infinite' }}
+            onMouseEnter={e => (e.currentTarget.style.animationPlayState = 'paused')}
+            onMouseLeave={e => (e.currentTarget.style.animationPlayState = 'running')}
+          >
+            {TICKER_ITEMS.map((name, i) => (
+              <div key={i} className="flex items-center flex-shrink-0">
+                <span
+                  className="text-sm font-medium tracking-wide transition-colors px-5 cursor-default whitespace-nowrap"
+                  style={{ color: hovered === name ? 'var(--color-brand)' : 'rgba(255,255,255,0.45)' }}
+                  onMouseEnter={() => setHovered(name)}
+                  onMouseLeave={() => setHovered(null)}
+                >
+                  {name}
+                </span>
+                <span className="text-brand/35 text-xs select-none">·</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* ── Footer note ─────────────────────────────────────── */}
-      <div className="pb-16 pt-6 text-center">
+      <div className="relative z-10 pb-16 pt-6 text-center">
         <p className="text-white/30 text-sm">
           {p.note}{' '}
           <Link href={contactPath(lang)} className="text-brand hover:text-brand-light font-semibold transition-colors">
@@ -121,3 +143,4 @@ export default function PortsSection() {
     </section>
   )
 }
+

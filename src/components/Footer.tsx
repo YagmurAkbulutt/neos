@@ -56,10 +56,10 @@ export default function Footer() {
 
       {/* ── Main grid ───────────────────── */}
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10 lg:gap-8">
 
           {/* Brand column — wider */}
-          <div className="lg:col-span-2">
+          <div className="sm:col-span-2 md:col-span-2 lg:col-span-2">
             <Link href="/">
               <Image
                 src="/logo.png"
@@ -90,63 +90,25 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Contact with icons */}
-            <div className="flex flex-col gap-3">
-              <a href="tel:+902163560664"
-                className="flex items-center gap-2.5 text-white/40 hover:text-brand text-sm transition-colors group">
-                <span className="w-7 h-7 rounded-lg bg-white/5 group-hover:bg-brand/15 flex items-center justify-center transition-colors flex-shrink-0">
-                  <PhoneIcon />
-                </span>
-                +90 216 356 06 64
+            {/* Social links */}
+            <div className="flex items-center gap-2.5">
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/company/neos-maritime/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="NEOS Maritime on LinkedIn"
+                className="w-9 h-9 rounded-xl bg-white/5 hover:bg-[#0A66C2]/20 border border-white/10 hover:border-[#0A66C2]/40 text-white/40 hover:text-[#0A66C2] flex items-center justify-center transition-all duration-200"
+              >
+                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current flex-shrink-0">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
               </a>
-              <a href="mailto:agency@neosmaritime.com"
-                className="flex items-center gap-2.5 text-white/40 hover:text-brand text-sm transition-colors group">
-                <span className="w-7 h-7 rounded-lg bg-white/5 group-hover:bg-brand/15 flex items-center justify-center transition-colors flex-shrink-0">
-                  <MailIcon />
-                </span>
-                agency@neosmaritime.com
-              </a>
-              <div className="flex items-start gap-2.5 text-white/30 text-sm">
-                <span className="w-7 h-7 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 text-white/30">
-                  <PinIcon />
-                </span>
-                <span className="leading-relaxed">
-                  <strong className="text-white/45 font-semibold">{tr.contact.labels.offices[0].label}</strong><br />
-                  {tr.contact.labels.offices[0].address}
-                  <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Caddebostan Mah. Ömerpaşa Sok. No 4 Daire 7 Kadıköy İstanbul')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-5 h-5 ml-1.5 rounded bg-white/5 hover:bg-brand/20 border border-white/10 hover:border-brand/40 text-brand transition-all duration-200 align-middle"
-                    title={lang === 'tr' ? 'Haritada Göster' : 'Show on Map'}
-                  >
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                    </svg>
-                  </a>
-                  <br />
-                  <span className="block mt-2">
-                    <strong className="text-white/45 font-semibold">{tr.contact.labels.offices[1].label}</strong><br />
-                    {tr.contact.labels.offices[1].address}
-                    <a
-                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Mimar Sinan Mah. Eşref Bitlis Cd. No:273, Körfez, Kocaeli')}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center w-5 h-5 ml-1.5 rounded bg-white/5 hover:bg-brand/20 border border-white/10 hover:border-brand/40 text-brand transition-all duration-200 align-middle"
-                      title={lang === 'tr' ? 'Haritada Göster' : 'Show on Map'}
-                    >
-                      <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                      </svg>
-                    </a>
-                  </span>
-                </span>
-              </div>
             </div>
           </div>
 
           {/* Services */}
-          <div>
+          <div className="sm:col-span-1 md:col-span-1 lg:col-span-1">
             <SectionLabel>{f.servicesTitle}</SectionLabel>
             <ul className="flex flex-col gap-2.5">
               {f.services.map((s, i) => (
@@ -163,28 +125,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Ports */}
-          <div>
-            <SectionLabel>{f.portsTitle}</SectionLabel>
-            <ul className="flex flex-col gap-2.5">
-              {f.ports.map((port, i) => (
-                <li key={i}>
-                  <Link
-                    href="/#ports"
-                    className="text-white/40 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2 group"
-                  >
-                    <span className="w-0 group-hover:w-3 h-px bg-brand transition-all duration-200 overflow-hidden" />
-                    {port}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Quick links */}
-          <div>
+          <div className="sm:col-span-1 md:col-span-1 lg:col-span-1">
             <SectionLabel>{tr.nav.about}</SectionLabel>
-            <ul className="flex flex-col gap-2.5 mb-8">
+            <ul className="flex flex-col gap-2.5">
               {[
                 { label: tr.nav.whoWeAre, href: companyPath('about-us', lang) },
                 { label: tr.nav.ourService, href: '/#services' },
@@ -202,23 +146,69 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+          </div>
 
-            {/* Social links */}
-            <div className="flex items-center gap-2">
-              {/* LinkedIn */}
-              <a
-                href="https://www.linkedin.com/company/neos-maritime/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="NEOS Maritime on LinkedIn"
-                className="w-9 h-9 rounded-xl bg-white/5 hover:bg-[#0A66C2]/20 border border-white/10 hover:border-[#0A66C2]/40 text-white/40 hover:text-[#0A66C2] flex items-center justify-center transition-all duration-200"
-              >
-                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current flex-shrink-0">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
+          {/* Contact / Offices */}
+          <div className="sm:col-span-2 md:col-span-2 lg:col-span-2">
+            <SectionLabel>{tr.footer.contactTitle}</SectionLabel>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-4 text-white/40 text-xs">
+              {tr.contact.labels.offices.map((office: any, index: number) => {
+                const isHQ = index === 0;
+                const mapQuery = index === 0 
+                  ? 'Caddebostan Mah. Ömerpaşa Sok. No 4 Daire 7 Kadıköy İstanbul' 
+                  : 'CG İş Merkezi Mimar Sinan Mah. Eşref Bitlis Caddesi No 273 Daire 10 Yarımca Kocaeli';
+                
+                return (
+                  <div key={office.label} className="flex flex-col gap-2">
+                    <div className="flex items-center gap-1.5">
+                      <span className={`text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full ${
+                        isHQ 
+                          ? 'bg-brand/10 text-brand border border-brand/20' 
+                          : 'bg-white/5 text-white/50 border border-white/10'
+                      }`}>
+                        {isHQ ? (lang === 'tr' ? 'Merkez' : 'HQ') : (lang === 'tr' ? 'Şube' : 'Branch')}
+                      </span>
+                      <h5 className="text-white/70 font-semibold truncate">
+                        {isHQ ? (lang === 'tr' ? 'İstanbul' : 'Istanbul') : 'Derince'}
+                      </h5>
+                    </div>
+                    <p className="leading-relaxed text-white/35 pr-2">
+                      {office.address}
+                    </p>
+                    <div className="flex flex-col gap-1.5 mt-1">
+                      <a 
+                        href={`tel:${office.phone.replace(/\s+/g, '')}`} 
+                        className="hover:text-brand transition-colors flex items-center gap-1.5"
+                      >
+                        <PhoneIcon />
+                        <span className="font-medium text-white/50 hover:text-brand">{office.phone}</span>
+                      </a>
+                      <a 
+                        href={`mailto:${office.email}`} 
+                        className="hover:text-brand transition-colors flex items-center gap-1.5"
+                      >
+                        <MailIcon />
+                        <span className="truncate text-white/50 hover:text-brand">{office.email}</span>
+                      </a>
+                      <a 
+                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-brand hover:underline mt-1 font-semibold text-[11px]"
+                      >
+                        <span>{lang === 'tr' ? 'Haritada Göster' : 'Show on Map'}</span>
+                        <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
+
         </div>
       </div>
 
@@ -240,11 +230,22 @@ export default function Footer() {
           <span className="text-white/50 text-xs tracking-wide">
             © {new Date().getFullYear()} NEOS Maritime — {f.copyright}
           </span>
+          <span className="text-white/40 text-xs tracking-wide">
+            Crafted by{' '}
+            <a 
+              href="https://www.inoviqlab.com/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-brand hover:text-brand-light hover:underline font-semibold transition-colors"
+            >
+              InoviqLab
+            </a>
+          </span>
         </div>
       </div>
 
       {/* ── Bottom orange micro-line ──────── */}
-      <div className="h-[2px] bg-gradient-to-r from-transparent via-brand/50 to-transparent" />
+      <div className="h-[2px] bg-gradient-to-r from-transparent via-brand/55 to-transparent" />
 
     </footer>
   )

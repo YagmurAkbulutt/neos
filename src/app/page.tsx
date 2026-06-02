@@ -49,8 +49,8 @@ export default function Home() {
         <HeroSection />
         <StatsSection />
         <ServicesSection />
-        <WhyNeosSection />
         <TestimonialsSection />
+        <WhyNeosSection />
         <PortsSection />
         <TankerDivider />
       </main>

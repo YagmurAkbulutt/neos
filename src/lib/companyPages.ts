@@ -13,6 +13,7 @@ export type CompanyPage = {
   overline: string
   title: string
   lead: string
+  heroLead?: string
   paragraphs: string[]
   values?: CompanyValue[]
 }
@@ -67,6 +68,8 @@ export const companyPages: Record<Lang, Record<CompanyPageSlug, CompanyPage>> = 
       title: 'Our Cultural Values',
       lead:
         'At NEOS, we have an honest, kind, reliable, and hardworking team. We work in line with our 12 cultural values, and everyone who works with us feels and adopts these values.',
+      heroLead:
+        'Our core principles that define who we are and guide our operations daily.',
       paragraphs: [],
       values: [
         {
@@ -179,6 +182,8 @@ export const companyPages: Record<Lang, Record<CompanyPageSlug, CompanyPage>> = 
       title: 'Kültür Değerlerimiz',
       lead:
         'Neos olarak dürüst, nazik, güvenilir ve çalışkan bir ekibe sahibiz. Ekip olarak 12 kültür değerimize bağlı olarak çalışırız ve bizimle çalışan herkes bu değerleri hisseder ve benimser.',
+      heroLead:
+        'Bizi tanımlayan ve günlük operasyonlarımıza yön veren temel ilkelerimiz.',
       paragraphs: [],
       values: [
         {

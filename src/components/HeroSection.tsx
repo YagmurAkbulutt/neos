@@ -1,58 +1,11 @@
 'use client'
 
 import Image from 'next/image'
-import { useRef, useState } from 'react'
 import { useLanguage } from '@/context/language'
 
 export default function HeroSection() {
   const { tr } = useLanguage()
   const h = tr.hero
-
-  const videoRefA = useRef<HTMLVideoElement>(null)
-  const videoRefB = useRef<HTMLVideoElement>(null)
-  const [activeVideo, setActiveVideo] = useState<'A' | 'B'>('A')
-  const isTransitioningRef = useRef(false)
-
-  const handleTimeUpdate = (id: 'A' | 'B') => {
-    const videoA = videoRefA.current
-    const videoB = videoRefB.current
-    if (!videoA || !videoB) return
-
-    const currentVideo = id === 'A' ? videoA : videoB
-    const nextVideo = id === 'A' ? videoB : videoA
-
-    // Sadece aktif olan video 19.0 saniyeye ulaştığında ve geçiş başlamadıysa
-    if (activeVideo === id && currentVideo.currentTime >= 19.0 && !isTransitioningRef.current) {
-      isTransitioningRef.current = true
-
-      // Diğer videoyu 10. saniyeden başlat
-      nextVideo.currentTime = 10
-      nextVideo.play().then(() => {
-        // Aktif videoyu değiştir (bu CSS ile cross-fade'i tetikler)
-        setActiveVideo(id === 'A' ? 'B' : 'A')
-      }).catch(() => {})
-
-      // 1 saniyelik geçiş tamamlandığında eski videoyu durdur ve kilidi kaldır
-      setTimeout(() => {
-        if (currentVideo) {
-          currentVideo.pause()
-        }
-        isTransitioningRef.current = false
-      }, 1000)
-    }
-  }
-
-  const handleLoadedMetadata = (id: 'A' | 'B') => {
-    const video = id === 'A' ? videoRefA.current : videoRefB.current
-    if (!video) return
-
-    video.currentTime = 10
-    
-    // Sayfa ilk yüklendiğinde A videosunu otomatik başlat
-    if (id === 'A' && activeVideo === 'A') {
-      video.play().catch(() => {})
-    }
-  }
 
   return (
     <section className="relative h-screen min-h-[680px] flex items-center justify-center overflow-hidden">
@@ -65,34 +18,15 @@ export default function HeroSection() {
         quality={90}
       />
       
-      {/* Video A */}
       <video
-        ref={videoRefA}
+        autoPlay
         muted
+        loop
         playsInline
-        onTimeUpdate={() => handleTimeUpdate('A')}
-        onLoadedMetadata={() => handleLoadedMetadata('A')}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
-          activeVideo === 'A' ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
-        }`}
+        className="absolute inset-0 w-full h-full object-cover z-10"
         aria-hidden="true"
       >
-        <source src="/hero2.MP4" type="video/mp4" />
-      </video>
-
-      {/* Video B */}
-      <video
-        ref={videoRefB}
-        muted
-        playsInline
-        onTimeUpdate={() => handleTimeUpdate('B')}
-        onLoadedMetadata={() => handleLoadedMetadata('B')}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
-          activeVideo === 'B' ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
-        }`}
-        aria-hidden="true"
-      >
-        <source src="/hero2.MP4" type="video/mp4" />
+        <source src="/herokisa.mp4" type="video/mp4" />
       </video>
 
       {/* Overlays */}

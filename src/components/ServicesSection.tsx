@@ -46,7 +46,9 @@ export default function ServicesSection() {
                   className="group relative min-h-[270px] rounded-3xl overflow-hidden border border-slate-100 hover:border-brand/40 shadow-sm hover:shadow-2xl hover:shadow-brand/5 transition-all duration-500 flex flex-col justify-between p-7 sm:p-8 h-full"
                 >
                   {/* Background Image Wrapper */}
-                  <div className="absolute inset-0 z-0 overflow-hidden">
+                  <div className="absolute inset-0 z-0 overflow-hidden bg-navy">
+                    {/* Pulsing Skeleton Background */}
+                    <div className="absolute inset-0 bg-navy-light/40 animate-pulse" />
                     <Image
                       src={bgImage}
                       alt={item.title}

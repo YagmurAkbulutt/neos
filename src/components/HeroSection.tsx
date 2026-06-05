@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useLanguage } from '@/context/language'
@@ -8,6 +9,7 @@ import { contactPath } from '@/lib/routes'
 export default function HeroSection() {
   const { lang, tr } = useLanguage()
   const h = tr.hero
+  const [videoLoaded, setVideoLoaded] = useState(false)
 
   return (
     <section className="relative h-screen min-h-[620px] flex items-center justify-center overflow-hidden">
@@ -26,13 +28,34 @@ export default function HeroSection() {
         loop
         playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover z-10"
+        onPlay={() => setVideoLoaded(true)}
+        className={`absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-1000 ${
+          videoLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
         aria-hidden="true"
       >
         <source src="/neohe.mp4" type="video/mp4" />
         <source src="/neohe.webm" type="video/webm" />
         <source src="/neohe.mov" type="video/quicktime" />
       </video>
+
+      {/* Premium Loader */}
+      <div
+        className={`absolute inset-0 flex items-center justify-center z-15 bg-navy-deep transition-all duration-700 ${
+          videoLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
+        }`}
+      >
+        <div className="relative flex flex-col items-center gap-4">
+          <div className="relative w-16 h-16">
+            <div className="absolute inset-0 rounded-full border-4 border-white/5" />
+            <div className="absolute inset-0 rounded-full border-4 border-brand border-t-transparent animate-spin" />
+            <div className="absolute inset-3 rounded-full bg-brand/10 animate-pulse" />
+          </div>
+          <span className="text-[10px] text-white/45 tracking-[0.25em] uppercase font-bold animate-pulse">
+            NEOS
+          </span>
+        </div>
+      </div>
 
       {/* Overlays */}
       <div className="absolute inset-0 bg-navy/62 z-20" />

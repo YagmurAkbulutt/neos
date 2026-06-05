@@ -33,12 +33,29 @@ const straitsAgencyImages: SlideImage[] = [
   { src: '/hizmetler/bogaz8.JPG', alt: 'Straits agency vessel monitoring' },
 ]
 
+const shipyardAgencyImages: SlideImage[] = [
+  { src: '/tersane/1.jpg', alt: 'Vessel repair and maintenance at Turkish shipyard' },
+  { src: '/tersane/2.jpg', alt: 'Ship drydocking operation' },
+  { src: '/tersane/3.jpg', alt: 'Propeller and rudder shipyard work' },
+  { src: '/tersane/4.jpg', alt: 'Vessel hull cleaning and painting' },
+  { src: '/tersane/5.jpg', alt: 'Shipyard crane and docking support' },
+  { src: '/tersane/6.jpg', alt: 'Technical service at shipyard' },
+  { src: '/tersane/7.jpg', alt: 'Shipyard conversion and repair project' },
+]
+
 const husbandryAgencyImages: SlideImage[] = [
-  { src: '/hizmetler/husbandry-acenteligi-01.jpg', alt: 'Husbandry agency vessel support service' },
+  { src: '/husbandry/1.jpg', alt: 'Crew change and logistics coordination' },
+  { src: '/husbandry/2.jpg', alt: 'Fresh provisions and food supply delivery' },
+  { src: '/husbandry/3.jpg', alt: 'Ship spare parts transportation and logistics' },
+  { src: '/husbandry/4.jpg', alt: 'Launch boat service boat at anchor' },
+  { src: '/husbandry/5.jpg', alt: 'Vessel husbanding and master assistance ashore' },
 ]
 
 const protectingAgencyImages: SlideImage[] = [
-  { src: '/hizmetler/koruyucu-acentelik-01.jpg', alt: 'Protecting agency supervision and representation' },
+  { src: '/koruyucu/1.jpg', alt: 'Owner protecting agency supervision' },
+  { src: '/koruyucu/2.jpg', alt: 'Independent port operations monitoring' },
+  { src: '/koruyucu/3.jpg', alt: 'Lighthouse safety representation' },
+  { src: '/koruyucu/4.jpg', alt: 'Vessel port cost auditing and control' },
 ]
 
 const lsdWorkMaterialsSupplyImages: SlideImage[] = [
@@ -199,14 +216,8 @@ export const services: ServiceItem[] = [
     slug: 'shipyard-agency',
     title: 'Shipyard Agency Service',
     tagline: 'Dedicated agency support for Turkish shipyard calls.',
-    heroImage: '/hizmetler/liman-acenteligi-06.jpg',
-    images: [
-      { src: '/g.jpeg',           alt: "Ship officer at vessel's navigation console" },
-      { src: '/gg.jpeg',          alt: 'Vessel at sea' },
-      { src: '/ggg.jpeg',         alt: 'Aerial view of vessel underway' },
-      { src: '/port-aerial.jpeg', alt: 'Port where crew changes take place' },
-      { src: '/ship-hero.jpeg',   alt: 'Container ship' },
-    ],
+    heroImage: '/tersane/1.jpg',
+    images: shipyardAgencyImages,
     overview:
       'NEOS Maritime supports vessels calling Turkish shipyards for repair, maintenance, docking, conversion, or technical attendance. We coordinate the local agency requirements around the yard stay, helping owners and managers keep communication, permissions, crew matters, deliveries, and service providers under control.',
     highlights: [
@@ -269,7 +280,7 @@ export const services: ServiceItem[] = [
     slug: 'husbandry-agency',
     title: 'Husbandry Agency Service',
     tagline: 'Everything your vessel needs while in port, handled.',
-    heroImage: '/hizmetler/husbandry-acenteligi-01.jpg',
+    heroImage: '/husbandry/1.jpg',
     images: husbandryAgencyImages,
     overview:
       'Our husbandry agency service handles the vessel\'s non-commercial requirements during port, anchorage, strait, or shipyard calls. Whether the request is crew change, medical support, spare parts, provisions, cash-to-master, technical attendance, or urgent local assistance, NEOS Maritime acts as the vessel\'s trusted shoreside operator.',
@@ -333,7 +344,7 @@ export const services: ServiceItem[] = [
     slug: 'protecting-agency',
     title: 'Protecting Agency Service',
     tagline: 'Independent representation for owners and charterers.',
-    heroImage: '/hizmetler/koruyucu-acentelik-01.jpg',
+    heroImage: '/koruyucu/1.jpg',
     images: protectingAgencyImages,
     overview:
       'At NEOS Maritime & Shipping Agency, we offer comprehensive Protecting Agency Services to safeguard the interests of shipowners and operators during port calls across Turkey. Acting as your trusted local partner, we ensure your vessel\'s operations run smoothly, efficiently, and in full compliance with regulations. With our deep local expertise and commitment to excellence, NEOS Maritime & Shipping Agency is dedicated to delivering reliable and efficient Protecting Agency Services that give you peace of mind.',

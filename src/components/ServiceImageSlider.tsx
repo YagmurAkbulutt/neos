@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import type { SlideImage } from '@/lib/services'
 
-export default function ServiceImageSlider({ images }: { images: SlideImage[] }) {
+export default function ServiceImageSlider({ images, dark = false }: { images: SlideImage[]; dark?: boolean }) {
   if (images.length === 0) return null
 
   const minimumSlides = 8
@@ -13,7 +13,11 @@ export default function ServiceImageSlider({ images }: { images: SlideImage[] })
   const animationDuration = `${baseTrack.length * 6}s`
 
   return (
-    <div className="relative overflow-hidden bg-white py-10 border-y border-gray-100">
+    <div className={`relative overflow-hidden border-y transition-all duration-300 ${
+      dark
+        ? 'bg-transparent py-6 border-white/10'
+        : 'bg-white py-10 border-gray-100'
+    }`}>
       {/* Keyframes scoped to this component — guaranteed regardless of CSS pipeline */}
       <style>{`
         @keyframes neos-slide {
@@ -23,11 +27,13 @@ export default function ServiceImageSlider({ images }: { images: SlideImage[] })
       `}</style>
 
       {/* Left fade */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-40 z-10
-                      bg-gradient-to-r from-white to-transparent" />
+      <div className={`pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-40 z-10 bg-gradient-to-r to-transparent ${
+        dark ? 'from-navy' : 'from-white'
+      }`} />
       {/* Right fade */}
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-40 z-10
-                      bg-gradient-to-l from-white to-transparent" />
+      <div className={`pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-40 z-10 bg-gradient-to-l to-transparent ${
+        dark ? 'from-navy' : 'from-white'
+      }`} />
 
       {/* Top orange accent */}
       <div className="absolute top-0 left-0 right-0 h-0.5

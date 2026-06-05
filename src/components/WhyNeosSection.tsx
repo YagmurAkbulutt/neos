@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useLanguage } from '@/context/language'
-import { companyPath, type CompanySlug } from '@/lib/routes'
+import { companyPath, contactPath, type CompanySlug } from '@/lib/routes'
 import ScrollReveal from '@/components/ScrollReveal'
 
 const pillarIcons = [
@@ -32,7 +32,7 @@ export default function WhyNeosSection() {
   const pageSlugs: CompanySlug[] = ['about-us', 'vision', 'mission', 'values']
 
   return (
-    <section id="about" className="relative section-pad overflow-hidden bg-gradient-to-b from-white via-slate-50/40 to-white border-t border-b border-slate-100">
+    <section id="about" className="relative scroll-mt-20 pt-12 pb-16 lg:pt-16 lg:pb-20 overflow-hidden bg-gradient-to-b from-white via-slate-50/40 to-white border-t border-b border-slate-100">
       {/* Decorative Blur Backgrounds */}
       <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-brand/5 rounded-full blur-[120px] pointer-events-none -z-10" />
       <div className="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-navy-light/5 rounded-full blur-[100px] pointer-events-none -z-10" />
@@ -149,7 +149,7 @@ export default function WhyNeosSection() {
             {/* CTA Button */}
             <ScrollReveal from="right" delay={400} duration={600} className="mt-4 flex items-center gap-4 flex-wrap">
               <Link 
-                href="#contact" 
+                href={contactPath(lang)} 
                 className="group inline-flex items-center gap-2.5 bg-brand hover:bg-brand-dark text-white font-bold px-8 py-4 rounded-xl transition-all duration-200 shadow-lg shadow-brand/15 hover:shadow-brand/25"
               >
                 <span>{w.cta.replace(' →', '')}</span>

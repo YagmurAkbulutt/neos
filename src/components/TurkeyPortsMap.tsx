@@ -1,4 +1,23 @@
 import Image from "next/image";
+import { useLanguage } from "@/context/language";
+
+const PORT_NAME_TRANSLATIONS: Record<string, Record<"en" | "tr", string>> = {
+  "İstanbul": { tr: "İstanbul", en: "Istanbul" },
+  "Kocaeli": { tr: "Kocaeli", en: "Kocaeli" },
+  "Tekirdağ": { tr: "Tekirdağ", en: "Tekirdag" },
+  "Bandırma": { tr: "Bandırma", en: "Bandirma" },
+  "Çanakkale": { tr: "Çanakkale", en: "Canakkale" },
+  "Aliağa": { tr: "Aliağa", en: "Aliaga" },
+  "İzmir": { tr: "İzmir", en: "Izmir" },
+  "Bodrum": { tr: "Bodrum", en: "Bodrum" },
+  "Antalya": { tr: "Antalya", en: "Antalya" },
+  "Mersin": { tr: "Mersin", en: "Mersin" },
+  "İskenderun": { tr: "İskenderun", en: "Iskenderun" },
+  "Zonguldak": { tr: "Zonguldak", en: "Zonguldak" },
+  "Samsun": { tr: "Samsun", en: "Samsun" },
+  "Trabzon": { tr: "Trabzon", en: "Trabzon" },
+  "Hopa": { tr: "Hopa", en: "Hopa" },
+};
 
 type LabelPos = "top" | "bottom" | "left" | "right" | "bottom-right" | "bottom-left" | "top-right" | "top-left";
 
@@ -22,7 +41,6 @@ const PORTS: Port[] = [
   { name: "Mersin", x: 43, y: 86, label: "bottom" },
   { name: "İskenderun", x: 55, y: 85, label: "bottom" },
   { name: "Zonguldak", x: 33, y: 17, label: "top" },
-  { name: "Sinop", x: 49, y: 11, label: "top" },
   { name: "Samsun", x: 54, y: 17, label: "top" },
   { name: "Trabzon", x: 72, y: 23, label: "top" },
   { name: "Hopa", x: 83, y: 16, label: "top" },
@@ -51,8 +69,7 @@ const ROUTES: [string, string][] = [
   ["Mersin", "İskenderun"],
   ["İstanbul", "Kocaeli"],
   ["Kocaeli", "Zonguldak"],
-  ["Zonguldak", "Sinop"],
-  ["Sinop", "Samsun"],
+  ["Zonguldak", "Samsun"],
   ["Samsun", "Trabzon"],
   ["Trabzon", "Hopa"],
 ];
@@ -68,6 +85,7 @@ function arcPath(a: Port, b: Port): string {
 }
 
 export function TurkeyPortsMap() {
+  const { lang } = useLanguage();
   return (
     <div className="relative w-full">
       {/* HUD frame */}
@@ -185,7 +203,7 @@ export function TurkeyPortsMap() {
                 <span
                   className={`pointer-events-none absolute ${LABEL_POS_CLASSES[port.label ?? "bottom"]} whitespace-nowrap rounded-sm border border-white/10 bg-[#06101e]/85 px-1.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-100 shadow-[0_0_8px_rgba(0,0,0,0.5)] backdrop-blur-sm`}
                 >
-                  {port.name}
+                  {PORT_NAME_TRANSLATIONS[port.name]?.[lang] || port.name}
                 </span>
               </div>
             ))}

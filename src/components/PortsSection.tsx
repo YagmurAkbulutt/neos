@@ -7,17 +7,25 @@ import { TurkeyPortsMap } from '@/components/TurkeyPortsMap'
 import { contactPath } from '@/lib/routes'
 import ScrollReveal from '@/components/ScrollReveal'
 
-const PORT_NAMES = [
+const PORT_NAMES_TR = [
   'İstanbul', 'Kocaeli', 'Tekirdağ', 'Bandırma', 'Çanakkale',
   'Aliağa', 'İzmir', 'Bodrum', 'Antalya', 'Mersin', 'İskenderun',
-  'Zonguldak', 'Sinop', 'Samsun', 'Trabzon', 'Hopa',
+  'Zonguldak', 'Samsun', 'Trabzon', 'Hopa',
 ]
-const TICKER_ITEMS = [...PORT_NAMES, ...PORT_NAMES]
+
+const PORT_NAMES_EN = [
+  'Istanbul', 'Kocaeli', 'Tekirdag', 'Bandirma', 'Canakkale',
+  'Aliaga', 'Izmir', 'Bodrum', 'Antalya', 'Mersin', 'Iskenderun',
+  'Zonguldak', 'Samsun', 'Trabzon', 'Hopa',
+]
 
 export default function PortsSection() {
   const { lang, tr } = useLanguage()
   const p = tr.ports
   const isTR = lang === 'tr'
+
+  const portNames = isTR ? PORT_NAMES_TR : PORT_NAMES_EN
+  const tickerItems = [...portNames, ...portNames]
 
   const [hovered, setHovered] = useState<string | null>(null)
 
@@ -25,13 +33,13 @@ export default function PortsSection() {
     { label: isTR ? 'Marmara & Boğazlar' : 'Marmara & Straits', count: 8 },
     { label: isTR ? 'Ege'                : 'Aegean',             count: 7 },
     { label: isTR ? 'Akdeniz'            : 'Mediterranean',      count: 5 },
-    { label: isTR ? 'Karadeniz'          : 'Black Sea',          count: 6 },
+    { label: isTR ? 'Karadeniz'          : 'Black Sea',          count: 5 },
   ]
 
   return (
     <section 
       id="ports" 
-      className="relative bg-navy overflow-hidden"
+      className="relative scroll-mt-20 bg-navy overflow-hidden"
       style={{
         background: "radial-gradient(ellipse at 50% 40%, #0f2040 0%, #0a1628 55%, #060e1a 100%)",
       }}
@@ -51,7 +59,7 @@ export default function PortsSection() {
 
       {/* ── Header ──────────────────────────────────────────── */}
       <ScrollReveal from="bottom" className="relative z-10">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-20 pb-10">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-12 pb-6 lg:pt-16 lg:pb-8">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <div>
               <span className="inline-block text-brand text-sm font-semibold tracking-widest uppercase mb-3">
@@ -113,7 +121,7 @@ export default function PortsSection() {
             onMouseEnter={e => (e.currentTarget.style.animationPlayState = 'paused')}
             onMouseLeave={e => (e.currentTarget.style.animationPlayState = 'running')}
           >
-            {TICKER_ITEMS.map((name, i) => (
+            {tickerItems.map((name, i) => (
               <div key={i} className="flex items-center flex-shrink-0">
                 <span
                   className="text-sm font-medium tracking-wide transition-colors px-5 cursor-default whitespace-nowrap"
@@ -131,7 +139,7 @@ export default function PortsSection() {
       </div>
 
       {/* ── Footer note ─────────────────────────────────────── */}
-      <div className="relative z-10 pb-16 pt-6 text-center">
+      <div className="relative z-10 pb-12 pt-4 lg:pb-16 text-center">
         <p className="text-white/30 text-sm">
           {p.note}{' '}
           <Link href={contactPath(lang)} className="text-brand hover:text-brand-light font-semibold transition-colors">

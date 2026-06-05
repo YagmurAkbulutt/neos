@@ -28,16 +28,18 @@ export default function TestimonialsSection() {
   const testimonialTrack = useMemo(() => [...baseTrack, ...baseTrack], [baseTrack])
 
   return (
-    <section id="testimonials" className="section-pad bg-slate-50 border-y border-gray-100 overflow-hidden">
+    <section id="testimonials" className="relative scroll-mt-20 pt-12 pb-16 lg:pt-16 lg:pb-20 bg-slate-50 border-y border-gray-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         <ScrollReveal from="bottom">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
             <div className="max-w-2xl">
-              <span className="inline-block text-brand text-sm font-semibold tracking-widest uppercase mb-3">
-                {testimonials.overline}
-              </span>
+              <div className="inline-flex items-center gap-2 mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse-dot" />
+                <span className="text-brand text-xs sm:text-sm font-bold tracking-widest uppercase">{testimonials.title}</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse-dot" />
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-navy tracking-tight mb-4">
-                {testimonials.title}
+                {testimonials.overline}
               </h2>
               <p className="text-slate-500 text-lg leading-relaxed">
                 {testimonials.subtitle}

@@ -1,22 +1,24 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useLanguage } from '@/context/language'
+import { contactPath } from '@/lib/routes'
 
 export default function HeroSection() {
-  const { tr } = useLanguage()
+  const { lang, tr } = useLanguage()
   const h = tr.hero
 
   return (
-    <section className="relative h-screen min-h-[680px] flex items-center justify-center overflow-hidden">
-      <Image
+    <section className="relative h-screen min-h-[620px] flex items-center justify-center overflow-hidden">
+      {/* <Image
         src="/ggg.jpeg"
         alt="Aerial view of container ship at sea"
         fill
         priority
         className="object-cover object-center"
         quality={90}
-      />
+      /> */}
       
       <video
         autoPlay
@@ -26,7 +28,8 @@ export default function HeroSection() {
         className="absolute inset-0 w-full h-full object-cover z-10"
         aria-hidden="true"
       >
-        <source src="/hero.mp4" type="video/mp4" />
+        <source src="/neohe.mov" type="video/quicktime" />
+        <source src="/neohe.mov" type="video/mp4" />
       </video>
 
       {/* Overlays */}
@@ -36,11 +39,6 @@ export default function HeroSection() {
 
       {/* Content wrapper */}
       <div className="relative z-30 text-center text-white px-5 max-w-5xl mx-auto">
-        <div className="inline-flex items-center gap-2.5 bg-white/8 backdrop-blur-sm border border-white/15 rounded-full px-5 py-2 text-sm font-medium mb-8 animate-fade-up">
-          <span className="w-2 h-2 rounded-full bg-brand animate-pulse-dot" />
-          {h.badge}
-        </div>
-
         <h1
           className="text-5xl sm:text-6xl md:text-[72px] font-bold leading-[1.06] tracking-tight mb-6 animate-fade-up"
           style={{ animationDelay: '0.1s', opacity: 0, animationFillMode: 'forwards' }}
@@ -61,13 +59,13 @@ export default function HeroSection() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up"
           style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}
         >
-          <a
-            href="#contact"
-            className="group bg-brand hover:bg-brand-dark text-white font-semibold px-8 py-4 rounded-xl text-base transition-all duration-200 shadow-lg shadow-brand/30 w-full sm:w-auto inline-flex items-center justify-center gap-2"
+          <Link
+            href={contactPath(lang)}
+            className="group border border-white/25 hover:border-white/55 hover:bg-white/8 text-white font-semibold px-8 py-4 rounded-xl text-base transition-all duration-200 backdrop-blur-sm w-full sm:w-auto inline-flex items-center justify-center gap-2"
           >
             {h.cta1}
             <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-          </a>
+          </Link>
           <a
             href="#services"
             className="border border-white/25 hover:border-white/55 hover:bg-white/8 text-white font-semibold px-8 py-4 rounded-xl text-base transition-all duration-200 backdrop-blur-sm w-full sm:w-auto inline-flex items-center justify-center"

@@ -12,7 +12,7 @@ export default function ServicesSection() {
   const s = tr.services
 
   return (
-    <section id="services" className="relative section-pad overflow-hidden bg-gradient-to-b from-slate-50/70 via-white to-slate-50/50 border-t border-b border-slate-100">
+    <section id="services" className="relative scroll-mt-20 pt-12 pb-16 lg:pt-16 lg:pb-20 overflow-hidden bg-gradient-to-b from-slate-50/70 via-white to-slate-50/50 border-t border-b border-slate-100">
       {/* Premium Background Decorative Elements */}
       <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-brand/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2" />
       <div className="absolute bottom-0 right-1/4 w-[450px] h-[450px] bg-navy-light/5 rounded-full blur-[120px] pointer-events-none translate-y-1/2" />

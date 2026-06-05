@@ -41,6 +41,24 @@ export default function CompanyPageClient({ slug }: Props) {
     ],
   }[slug]
 
+  const navigationTabs = (
+    <div className="flex flex-wrap gap-3 mb-6">
+      {navPages.map((item) => (
+        <Link
+          key={item.slug}
+          href={companyPath(item.slug, lang)}
+          className={`px-4 py-2 rounded-xl text-sm font-semibold border transition-colors ${
+            item.slug === slug
+              ? 'bg-brand text-white border-brand shadow-sm shadow-brand/10'
+              : 'bg-white text-navy border-gray-200 hover:border-brand hover:text-brand'
+          }`}
+        >
+          {item.navLabel}
+        </Link>
+      ))}
+    </div>
+  )
+
   return (
     <>
       <Navbar />
@@ -64,22 +82,6 @@ export default function CompanyPageClient({ slug }: Props) {
 
         <section className="bg-slate-50 py-10 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-            <div className="flex flex-wrap gap-3 mb-10">
-              {navPages.map((item) => (
-                <Link
-                  key={item.slug}
-                  href={companyPath(item.slug, lang)}
-                  className={`px-4 py-2 rounded-xl text-sm font-semibold border transition-colors ${
-                    item.slug === slug
-                      ? 'bg-brand text-white border-brand'
-                      : 'bg-white text-navy border-gray-200 hover:border-brand hover:text-brand'
-                  }`}
-                >
-                  {item.navLabel}
-                </Link>
-              ))}
-            </div>
-
             {page.values ? (
               <div className="grid lg:grid-cols-12 gap-8 items-start">
                 <ScrollReveal from="left" className="lg:col-span-4 lg:sticky lg:top-28">
@@ -100,6 +102,7 @@ export default function CompanyPageClient({ slug }: Props) {
                 </ScrollReveal>
 
                 <ScrollReveal from="right" className="lg:col-span-8">
+                  {navigationTabs}
                   <p className="text-slate-600 text-lg leading-relaxed mb-8 font-medium">
                     {page.lead}
                   </p>
@@ -141,6 +144,7 @@ export default function CompanyPageClient({ slug }: Props) {
                 </ScrollReveal>
 
                 <ScrollReveal from="right" className="lg:col-span-8">
+                  {navigationTabs}
                   <article className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
                     {isAboutPage ? (
                       <div className="p-7 md:p-10">

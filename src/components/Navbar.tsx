@@ -62,7 +62,7 @@ export default function Navbar({ heroGlass = false }: NavbarProps) {
     }
   }, [menuOpen])
 
-  const linkClass = `text-sm font-medium tracking-wide transition-colors duration-200 ${
+  const linkClass = `text-[15px] font-medium tracking-wide transition-colors duration-200 ${
     scrolled ? 'text-navy hover:text-brand' : 'text-white/80 hover:text-white'
   }`
 
@@ -112,7 +112,7 @@ export default function Navbar({ heroGlass = false }: NavbarProps) {
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 relative">
-        <div className="flex items-center justify-between h-20">
+        <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-20' : 'h-20 lg:h-24'}`}>
 
           {/* Logo */}
           <Link href="/" onClick={handleLogoClick} className="flex-shrink-0">
@@ -121,17 +121,19 @@ export default function Navbar({ heroGlass = false }: NavbarProps) {
               alt="NEOS Maritime"
               width={160}
               height={52}
-              className="h-11 w-auto object-contain"
+              className={`w-auto object-contain transition-all duration-300 ${
+                scrolled ? 'h-11' : 'h-11 lg:h-[50px]'
+              }`}
               priority
             />
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden nav:flex items-center gap-7">
+          <div className="hidden nav:flex items-center gap-9 lg:gap-10">
             {/* Who we are dropdown */}
             <div
               ref={aboutDropdownRef}
-              className="relative h-20 flex items-center"
+              className={`relative flex items-center transition-all duration-300 ${scrolled ? 'h-20' : 'h-20 lg:h-24'}`}
               onMouseEnter={() => setAboutOpen(true)}
               onMouseLeave={() => setAboutOpen(false)}
             >
@@ -179,7 +181,7 @@ export default function Navbar({ heroGlass = false }: NavbarProps) {
             {/* Services dropdown */}
             <div
               ref={servicesDropdownRef}
-              className="relative h-20 flex items-center"
+              className={`relative flex items-center transition-all duration-300 ${scrolled ? 'h-20' : 'h-20 lg:h-24'}`}
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
             >
@@ -228,13 +230,13 @@ export default function Navbar({ heroGlass = false }: NavbarProps) {
           </div>
 
           {/* Right: lang toggle + mail info */}
-          <div className="hidden nav:flex items-center gap-6">
+          <div className="hidden nav:flex items-center gap-8">
             {/* Email info with icon */}
             <a
               href={outlookComposeHref}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-2 text-sm font-medium transition-colors duration-200 ${
+              className={`flex items-center gap-2 text-[15px] font-medium transition-colors duration-200 ${
                 scrolled ? 'text-navy/80 hover:text-brand' : 'text-white/85 hover:text-white'
               }`}
               aria-label={`Send email to ${serviceEmail} in Outlook`}
@@ -256,7 +258,7 @@ export default function Navbar({ heroGlass = false }: NavbarProps) {
                 <button
                   key={l}
                   onClick={() => handleLanguageChange(l)}
-                  className={`px-2.5 py-1 text-xs font-bold tracking-widest uppercase transition-all duration-200 ${
+                  className={`px-3 py-1.5 text-xs font-bold tracking-widest uppercase transition-all duration-200 ${
                     lang === l
                       ? 'bg-brand text-white'
                       : scrolled

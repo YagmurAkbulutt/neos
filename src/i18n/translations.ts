@@ -17,13 +17,12 @@ const t = {
       language: 'Language',
     },
     hero: {
-      badge: 'Established 2018 · 23 Years Industry Experience',
       title1: 'Your Trusted',
       titleAccent: 'Ship Agency',
       title2: 'in Turkey',
       subtitle:
         'Professional ship agency services across all Turkish ports, shipyards, and the Turkish Straits — available 24/7, every day of the year.',
-      cta1: 'Request Agency Service',
+      cta1: 'Contact Us',
       cta2: 'Our Services',
       scroll: 'Scroll',
     },
@@ -136,19 +135,19 @@ const t = {
       regions: [
         {
           region: 'Marmara & Straits',
-          ports: ['Istanbul', 'Derince', 'Izmit', 'Gemlik', 'Bandırma', 'Mudanya', 'Bosphorus Strait', 'Dardanelles Strait'],
+          ports: ['Istanbul', 'Derince', 'Izmit', 'Gemlik', 'Bandirma', 'Mudanya', 'Bosphorus Strait', 'Dardanelles Strait'],
         },
         {
           region: 'Aegean',
-          ports: ['Izmir', 'Aliağa', 'Dikili', 'Çeşme', 'Kuşadası', 'Bodrum', 'Marmaris'],
+          ports: ['Izmir', 'Aliaga', 'Dikili', 'Cesme', 'Kusadasi', 'Bodrum', 'Marmaris'],
         },
         {
           region: 'Mediterranean',
-          ports: ['Antalya', 'Mersin', 'Iskenderun', 'Taşucu', 'Fethiye'],
+          ports: ['Antalya', 'Mersin', 'Iskenderun', 'Tasucu', 'Fethiye'],
         },
         {
           region: 'Black Sea',
-          ports: ['Samsun', 'Trabzon', 'Zonguldak', 'Giresun', 'Sinop', 'Hopa'],
+          ports: ['Samsun', 'Trabzon', 'Zonguldak', 'Giresun', 'Hopa'],
         },
       ],
     },
@@ -234,7 +233,7 @@ const t = {
       portsTitle: 'Key Ports',
       contactTitle: 'Contact',
       services: ['Port Agency', 'Straits Agency', 'Shipyard Agency', 'Husbandry Agency', 'Protecting Agency', 'L/S/D Work and Materials Supply'],
-      ports: ['Istanbul', 'Izmir', 'Mersin', 'Aliağa', 'Samsun', 'Iskenderun', 'Bosphorus Strait'],
+      ports: ['Istanbul', 'Izmir', 'Mersin', 'Aliaga', 'Samsun', 'Iskenderun', 'Bosphorus Strait'],
       privacy: 'Privacy Policy',
       terms: 'Terms of Service',
     },
@@ -257,7 +256,7 @@ const t = {
       ctaOverline: 'Get In Touch',
       ctaReadyPrefix: 'Ready to request',
       ctaSub: "Our operations team is available 24/7. Send us your vessel details and we'll respond within the hour.",
-      ctaBtn: 'Send a Request →',
+      ctaBtn: 'Contact Us',
       relatedLinkLabel: 'Learn more',
     },
     tankerQuote: {
@@ -282,13 +281,12 @@ const t = {
       language: 'Dil',
     },
     hero: {
-      badge: 'Kuruluş 2018 · 23 Yıllık Sektör Deneyimi',
-      title1: "Türkiye'nin",
-      titleAccent: 'Güvenilir',
-      title2: 'Gemi Acentesi',
+      title1: "Türkiye'nin Güvenilir",
+      titleAccent: 'Gemi Acentesi',
+      title2: '',
       subtitle:
         "Tüm Türk limanlarında, tersanelerinde ve Türk Boğazlarında profesyonel gemi acenteliği — yılın 365 günü, 7/24.",
-      cta1: 'Hizmet Talebi',
+      cta1: 'Bize Ulaşın',
       cta2: 'Hizmetlerimiz',
       scroll: 'Kaydır',
     },
@@ -413,7 +411,7 @@ const t = {
         },
         {
           region: 'Karadeniz',
-          ports: ['Samsun', 'Trabzon', 'Zonguldak', 'Giresun', 'Sinop', 'Hopa'],
+          ports: ['Samsun', 'Trabzon', 'Zonguldak', 'Giresun', 'Hopa'],
         },
       ],
     },
@@ -522,7 +520,7 @@ const t = {
       ctaOverline: 'İletişim',
       ctaReadyPrefix: 'hizmetini talep etmeye hazır mısınız?',
       ctaSub: 'Operasyon ekibimiz 7/24 hizmetinizdedir. Talebinizi iletin, en kısa sürede size dönelim.',
-      ctaBtn: 'Talep Gönder →',
+      ctaBtn: 'Bize Ulaşın',
       relatedLinkLabel: 'İncele',
     },
     tankerQuote: {

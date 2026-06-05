@@ -25,11 +25,13 @@ export default function HeroSection() {
         muted
         loop
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover z-10"
         aria-hidden="true"
       >
+        <source src="/neohe.mp4" type="video/mp4" />
+        <source src="/neohe.webm" type="video/webm" />
         <source src="/neohe.mov" type="video/quicktime" />
-        <source src="/neohe.mov" type="video/mp4" />
       </video>
 
       {/* Overlays */}

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useLanguage } from '@/context/language'
@@ -10,25 +10,53 @@ export default function HeroSection() {
   const { lang, tr } = useLanguage()
   const h = tr.hero
   const [videoLoaded, setVideoLoaded] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    // Safety timeout: fade out loader after 3 seconds anyway,
+    // to ensure user doesn't get stuck with a spinner if anything fails.
+    const timer = setTimeout(() => {
+      setVideoLoaded(true)
+    }, 3000)
+
+    if (videoRef.current) {
+      videoRef.current.play()
+        .then(() => {
+          setVideoLoaded(true)
+        })
+        .catch((error) => {
+          console.log("Autoplay failed or blocked:", error)
+          // Autoplay failed (e.g. low power mode), but we still hide loader
+          // so they can see the first frame / fallback image
+          setVideoLoaded(true)
+        })
+    }
+
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <section className="relative h-screen min-h-[620px] flex items-center justify-center overflow-hidden">
-      {/* <Image
+      {/* Background Fallback Image */}
+      <Image
         src="/ggg.jpeg"
         alt="Aerial view of container ship at sea"
         fill
         priority
-        className="object-cover object-center"
+        className="object-cover object-center z-0"
         quality={90}
-      /> */}
+      />
       
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
         onPlay={() => setVideoLoaded(true)}
+        onLoadedData={() => setVideoLoaded(true)}
+        onCanPlay={() => setVideoLoaded(true)}
         className={`absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-1000 ${
           videoLoaded ? 'opacity-100' : 'opacity-0'
         }`}
@@ -41,7 +69,7 @@ export default function HeroSection() {
 
       {/* Premium Loader */}
       <div
-        className={`absolute inset-0 flex items-center justify-center z-15 bg-navy-deep transition-all duration-700 ${
+        className={`absolute inset-0 flex items-center justify-center z-[15] bg-navy-deep transition-all duration-700 ${
           videoLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}
       >
@@ -58,9 +86,9 @@ export default function HeroSection() {
       </div>
 
       {/* Overlays */}
-      <div className="absolute inset-0 bg-navy/62 z-20" />
-      <div className="absolute top-0 left-0 right-0 h-36 bg-gradient-to-b from-navy/80 to-transparent z-20" />
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-navy-deep/70 to-transparent z-20" />
+      <div className="absolute inset-0 bg-navy/40 z-20" />
+      <div className="absolute top-0 left-0 right-0 h-36 bg-gradient-to-b from-navy/50 to-transparent z-20" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-navy-deep/45 to-transparent z-20" />
 
       {/* Content wrapper */}
       <div className="relative z-30 text-center text-white px-5 max-w-5xl mx-auto">
@@ -86,14 +114,14 @@ export default function HeroSection() {
         >
           <Link
             href={contactPath(lang)}
-            className="group border border-white/25 hover:border-white/55 hover:bg-white/8 text-white font-semibold px-8 py-4 rounded-xl text-base transition-all duration-200 backdrop-blur-sm w-full sm:w-auto inline-flex items-center justify-center gap-2"
+            className="group border border-white/25 hover:border-white/55 hover:bg-white/8 text-white font-semibold px-8 py-4 rounded-xl text-base transition-all duration-200 w-full sm:w-auto inline-flex items-center justify-center gap-2"
           >
             {h.cta1}
             <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
           </Link>
           <a
             href="#services"
-            className="border border-white/25 hover:border-white/55 hover:bg-white/8 text-white font-semibold px-8 py-4 rounded-xl text-base transition-all duration-200 backdrop-blur-sm w-full sm:w-auto inline-flex items-center justify-center"
+            className="border border-white/25 hover:border-white/55 hover:bg-white/8 text-white font-semibold px-8 py-4 rounded-xl text-base transition-all duration-200 w-full sm:w-auto inline-flex items-center justify-center"
           >
             {h.cta2}
           </a>

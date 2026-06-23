@@ -158,22 +158,19 @@ const t = {
         'Direct, practical feedback from the companies that rely on NEOS Maritime for port calls, strait transits, and vessel support in Turkey.',
       items: [
         {
-          quote:
-            'NEOS Maritime gives us clear updates, fast answers, and reliable local coordination whenever our vessels call Turkish ports.',
-          name: 'Operations Manager',
-          company: 'Ship Management Company',
+          quote: 'Customer comment will be placed here.',
+          name: 'Name Surname',
+          company: 'Company / Title',
         },
         {
-          quote:
-            'Their team understands the urgency of vessel operations and keeps the process transparent from appointment to final account.',
-          name: 'Chartering Desk',
-          company: 'Dry Bulk Operator',
+          quote: 'Customer comment will be placed here.',
+          name: 'Name Surname',
+          company: 'Company / Title',
         },
         {
-          quote:
-            'We value NEOS for their practical approach, availability, and ability to resolve local issues without unnecessary delay.',
-          name: 'Fleet Superintendent',
-          company: 'International Owner',
+          quote: 'Customer comment will be placed here.',
+          name: 'Name Surname',
+          company: 'Company / Title',
         },
       ],
     },
@@ -422,22 +419,19 @@ const t = {
         'Türkiye’de liman çağrısı, boğaz geçişi ve gemi destek hizmetleri için NEOS Maritime’a güvenen şirketlerden pratik geri bildirimler.',
       items: [
         {
-          quote:
-            'NEOS Maritime, gemilerimiz Türkiye limanlarına geldiğinde net güncellemeler, hızlı cevaplar ve güvenilir yerel koordinasyon sağlıyor.',
-          name: 'Operasyon Müdürü',
-          company: 'Gemi Yönetim Şirketi',
+          quote: 'Müşteri yorumu buraya gelecektir.',
+          name: 'İsim Soyisim',
+          company: 'Şirket Adı / Görev',
         },
         {
-          quote:
-            'Ekipleri gemi operasyonlarının aciliyetini biliyor ve atamadan nihai hesaba kadar süreci şeffaf yönetiyor.',
-          name: 'Kiracı Operasyon Masası',
-          company: 'Kuru Yük Operatörü',
+          quote: 'Müşteri yorumu buraya gelecektir.',
+          name: 'İsim Soyisim',
+          company: 'Şirket Adı / Görev',
         },
         {
-          quote:
-            'NEOS’u pratik yaklaşımı, ulaşılabilirliği ve yerel konuları gereksiz gecikme yaratmadan çözebilmesi nedeniyle tercih ediyoruz.',
-          name: 'Filo Enspektörü',
-          company: 'Uluslararası Armatör',
+          quote: 'Müşteri yorumu buraya gelecektir.',
+          name: 'İsim Soyisim',
+          company: 'Şirket Adı / Görev',
         },
       ],
     },

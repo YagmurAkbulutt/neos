@@ -38,15 +38,7 @@ export default function HeroSection() {
   return (
     <section className="relative h-screen min-h-[620px] flex items-center justify-center overflow-hidden">
       {/* Background Fallback Image */}
-      <Image
-        src="/ggg.jpeg"
-        alt="Aerial view of container ship at sea"
-        fill
-        priority
-        className="object-cover object-center z-0"
-        quality={90}
-      />
-      
+
       <video
         ref={videoRef}
         autoPlay
@@ -57,9 +49,8 @@ export default function HeroSection() {
         onPlay={() => setVideoLoaded(true)}
         onLoadedData={() => setVideoLoaded(true)}
         onCanPlay={() => setVideoLoaded(true)}
-        className={`absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-1000 ${
-          videoLoaded ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
         aria-hidden="true"
       >
         <source src="/neohe.mp4" type="video/mp4" />
@@ -69,9 +60,8 @@ export default function HeroSection() {
 
       {/* Premium Loader */}
       <div
-        className={`absolute inset-0 flex items-center justify-center z-[15] bg-navy-deep transition-all duration-700 ${
-          videoLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
-        }`}
+        className={`absolute inset-0 flex items-center justify-center z-[15] bg-navy-deep transition-all duration-700 ${videoLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
+          }`}
       >
         <div className="relative flex flex-col items-center gap-4">
           <div className="relative w-16 h-16">

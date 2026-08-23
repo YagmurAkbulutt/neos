@@ -62,7 +62,7 @@ export default function Footer() {
           <div className="sm:col-span-2 md:col-span-2 lg:col-span-2">
             <Link href="/">
               <Image
-                src="/logo.png"
+                src="/images/brand/logo.png"
                 alt="NEOS Maritime"
                 width={150}
                 height={48}

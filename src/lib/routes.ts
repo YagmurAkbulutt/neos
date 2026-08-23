@@ -11,9 +11,9 @@ export type ServiceSlug =
 export type CompanySlug = 'about-us' | 'vision' | 'mission' | 'values'
 
 const routeSegments = {
-  services: { en: 'services', tr: 'hizmetler' },
-  company: { en: 'who-we-are', tr: 'biz-kimiz' },
-  contact: { en: 'contact', tr: 'iletisim' },
+  services: 'services',
+  company: 'who-we-are',
+  contact: 'contact',
 } as const
 
 export const serviceSlugs: Record<Lang, Record<ServiceSlug, string>> = {
@@ -26,13 +26,22 @@ export const serviceSlugs: Record<Lang, Record<ServiceSlug, string>> = {
     'lsd-work-materials-supply': 'lsd-work-materials-supply',
   },
   tr: {
-    'port-agency': 'liman-acenteligi',
-    'straits-agency': 'bogaz-acenteligi',
-    'shipyard-agency': 'tersane-acenteligi',
-    'husbandry-agency': 'husbandry-acenteligi',
-    'protecting-agency': 'koruyucu-acentelik',
-    'lsd-work-materials-supply': 'lsd-isleri-ve-malzeme-tedarigi',
+    'port-agency': 'port-agency',
+    'straits-agency': 'straits-agency',
+    'shipyard-agency': 'shipyard-agency',
+    'husbandry-agency': 'husbandry-agency',
+    'protecting-agency': 'protecting-agency',
+    'lsd-work-materials-supply': 'lsd-work-materials-supply',
   },
+}
+
+export const legacyTurkishServiceSlugs: Record<string, ServiceSlug> = {
+  'liman-acenteligi': 'port-agency',
+  'bogaz-acenteligi': 'straits-agency',
+  'tersane-acenteligi': 'shipyard-agency',
+  'husbandry-acenteligi': 'husbandry-agency',
+  'koruyucu-acentelik': 'protecting-agency',
+  'lsd-isleri-ve-malzeme-tedarigi': 'lsd-work-materials-supply',
 }
 
 export const companySlugs: Record<Lang, Record<CompanySlug, string>> = {
@@ -43,11 +52,18 @@ export const companySlugs: Record<Lang, Record<CompanySlug, string>> = {
     values: 'values',
   },
   tr: {
-    'about-us': 'hakkimizda',
-    vision: 'vizyon',
-    mission: 'misyon',
-    values: 'degerlerimiz',
+    'about-us': 'about-us',
+    vision: 'vision',
+    mission: 'mission',
+    values: 'values',
   },
+}
+
+export const legacyTurkishCompanySlugs: Record<string, CompanySlug> = {
+  hakkimizda: 'about-us',
+  vizyon: 'vision',
+  misyon: 'mission',
+  degerlerimiz: 'values',
 }
 
 function invert<T extends string>(record: Record<T, string>) {
@@ -58,12 +74,12 @@ function invert<T extends string>(record: Record<T, string>) {
 
 const serviceCanonicalBySlug = {
   ...invert(serviceSlugs.en),
-  ...invert(serviceSlugs.tr),
+  ...legacyTurkishServiceSlugs,
 }
 
 const companyCanonicalBySlug = {
   ...invert(companySlugs.en),
-  ...invert(companySlugs.tr),
+  ...legacyTurkishCompanySlugs,
 }
 
 export function getCanonicalServiceSlug(slug: string): ServiceSlug | null {
@@ -76,40 +92,23 @@ export function getCanonicalCompanySlug(slug: string): CompanySlug | null {
 
 export function servicePath(slug: string, lang: Lang) {
   const canonical = getCanonicalServiceSlug(slug)
-  if (!canonical) return `/${routeSegments.services[lang]}/${slug}`
-  return `/${routeSegments.services[lang]}/${serviceSlugs[lang][canonical]}`
+  if (!canonical) return `/${routeSegments.services}/${slug}`
+  return `/${routeSegments.services}/${serviceSlugs[lang][canonical]}`
 }
 
 export function companyPath(slug: string, lang: Lang) {
   const canonical = getCanonicalCompanySlug(slug)
-  if (!canonical) return `/${routeSegments.company[lang]}/${slug}`
-  return `/${routeSegments.company[lang]}/${companySlugs[lang][canonical]}`
+  if (!canonical) return `/${routeSegments.company}/${slug}`
+  return `/${routeSegments.company}/${companySlugs[lang][canonical]}`
 }
 
 export function contactPath(lang: Lang) {
-  return `/${routeSegments.contact[lang]}`
+  void lang
+  return `/${routeSegments.contact}`
 }
 
 export function getLanguageFromPath(pathname: string): Lang | null {
-  const [segment] = pathname.split('/').filter(Boolean)
-  if (!segment) return null
-
-  if (
-    segment === routeSegments.services.tr ||
-    segment === routeSegments.company.tr ||
-    segment === routeSegments.contact.tr
-  ) {
-    return 'tr'
-  }
-
-  if (
-    segment === routeSegments.services.en ||
-    segment === routeSegments.company.en ||
-    segment === routeSegments.contact.en
-  ) {
-    return 'en'
-  }
-
+  void pathname
   return null
 }
 
@@ -123,15 +122,15 @@ export function localizePath(pathname: string, lang: Lang) {
 
   const [section, slug] = segments
 
-  if (section === routeSegments.services.en || section === routeSegments.services.tr) {
-    return slug ? `${servicePath(slug, lang)}${suffix}` : `/${routeSegments.services[lang]}${suffix}`
+  if (section === routeSegments.services) {
+    return slug ? `${servicePath(slug, lang)}${suffix}` : `/${routeSegments.services}${suffix}`
   }
 
-  if (section === routeSegments.company.en || section === routeSegments.company.tr) {
-    return slug ? `${companyPath(slug, lang)}${suffix}` : `/${routeSegments.company[lang]}${suffix}`
+  if (section === routeSegments.company) {
+    return slug ? `${companyPath(slug, lang)}${suffix}` : `/${routeSegments.company}${suffix}`
   }
 
-  if (section === routeSegments.contact.en || section === routeSegments.contact.tr) {
+  if (section === routeSegments.contact) {
     return `${contactPath(lang)}${suffix}`
   }
 

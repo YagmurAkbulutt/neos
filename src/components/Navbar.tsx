@@ -117,7 +117,7 @@ export default function Navbar({ heroGlass = false }: NavbarProps) {
           {/* Logo */}
           <Link href="/" onClick={handleLogoClick} className="flex-shrink-0">
             <Image
-              src="/logo.png"
+              src="/images/brand/logo.png"
               alt="NEOS Maritime"
               width={160}
               height={52}

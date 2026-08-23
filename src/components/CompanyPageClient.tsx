@@ -65,7 +65,7 @@ export default function CompanyPageClient({ slug }: Props) {
 
       <main>
         <section className="relative min-h-[52vh] flex items-end overflow-hidden">
-          <Image src="/g.jpeg" alt={page.title} fill priority className="object-cover object-center" quality={85} />
+          <Image src="/images/pages/company-hero.jpeg" alt={page.title} fill priority className="object-cover object-center" quality={85} />
           <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/70 to-navy/25" />
           <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-14 pt-32">
             <span className="inline-block text-brand text-sm font-semibold tracking-widest uppercase mb-4">

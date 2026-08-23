@@ -135,7 +135,7 @@ export function TurkeyPortsMap() {
 
           {/* Turkey map silhouette */}
           <img
-            src="/turkey-map.svg"
+            src="/images/maps/turkey-map.svg"
             alt="Türkiye haritası — limanlar"
             className="absolute inset-0 h-full w-full object-contain"
             style={{

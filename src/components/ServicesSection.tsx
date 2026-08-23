@@ -37,7 +37,7 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {s.items.map((item, i) => {
             const serviceData = services.find((srv) => srv.slug === item.slug)
-            const bgImage = serviceData?.heroImage || '/hizmetler/liman-acenteligi-01.jpg'
+            const bgImage = serviceData?.heroImage || '/images/services/port-agency/01.jpg'
 
             return (
               <ScrollReveal key={item.slug} from="bottom" delay={(i % 3) * 100} duration={600} className="h-full">

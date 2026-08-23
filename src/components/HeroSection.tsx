@@ -53,9 +53,7 @@ export default function HeroSection() {
           }`}
         aria-hidden="true"
       >
-        <source src="/neohe.mp4" type="video/mp4" />
-        <source src="/neohe.webm" type="video/webm" />
-        <source src="/neohe.mov" type="video/quicktime" />
+        <source src="/videos/hero-background.mp4" type="video/mp4" />
       </video>
 
       {/* Premium Loader */}
@@ -127,4 +125,3 @@ export default function HeroSection() {
     </section>
   )
 }
-

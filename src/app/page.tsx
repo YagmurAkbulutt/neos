@@ -18,7 +18,7 @@ function TankerDivider() {
   const q = tr.tankerQuote
   return (
     <div className="relative h-64 md:h-80 overflow-hidden">
-      <Image src="/neos.jpeg" alt="Container ship at sea" fill className="object-cover object-center" quality={80} />
+      <Image src="/images/pages/home-hero.jpeg" alt="Container ship at sea" fill className="object-cover object-center" quality={80} />
       <div className="absolute inset-0 bg-navy/60" />
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-brand" />
       <div className="absolute top-0 left-0 right-0 h-1 bg-brand/30" />

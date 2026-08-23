@@ -76,7 +76,7 @@ export default function WhyNeosSection() {
             {/* Main Image Container */}
             <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-navy/10 aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/5] bg-slate-100 group w-full h-full">
               <Image 
-                src="/neos4.JPEG" 
+                src="/images/pages/about-overview.jpeg" 
                 alt="Vessel at port" 
                 fill 
                 className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" 

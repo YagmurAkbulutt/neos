@@ -62,6 +62,7 @@ export default function ServiceImageSlider({ images, dark = false }: { images: S
               alt={img.alt}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
+              style={{ objectPosition: img.objectPosition ?? 'center' }}
               quality={75}
               sizes="320px"
             />

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Space_Grotesk } from 'next/font/google'
 import { LanguageProvider } from '@/context/language'
+import { organizationJsonLd, siteConfig, websiteJsonLd } from '@/lib/seo'
 import './globals.css'
 
 const inter = Inter({
@@ -16,19 +17,56 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: 'NEOS Maritime — Ship Agency in Turkey',
-  description:
-    'Professional ship agency services across Turkish ports, shipyards, and the Turkish Straits. Available 24/7. Established 2018 with 23 years of industry experience.',
-  keywords:
-    'ship agency Turkey, gemi acentesi, maritime agency Istanbul, Turkish ports, husbandry services',
+  metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.shortName,
+  title: siteConfig.title,
+  description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: '/',
+    siteName: siteConfig.shortName,
+    images: [
+      {
+        url: siteConfig.defaultImagePath,
+        alt: siteConfig.title,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [siteConfig.defaultImagePath],
+  },
+  icons: {
+    icon: [{ url: '/favicon.png', type: 'image/png', sizes: '512x512' }],
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
 }
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const structuredData = [organizationJsonLd(), websiteJsonLd()]
+
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
+        {structuredData.map((entry) => (
+          <script
+            key={entry['@type']}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(entry) }}
+          />
+        ))}
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

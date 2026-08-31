@@ -1,4 +1,4 @@
-export type SlideImage = { src: string; alt: string }
+export type SlideImage = { src: string; alt: string; objectPosition?: string }
 
 export type ServiceItem = {
   slug: string
@@ -23,6 +23,11 @@ const portAgencyImages: SlideImage[] = [
 ]
 
 const straitsAgencyImages: SlideImage[] = [
+  { src: '/images/services/straits-agency/09.jpg', alt: 'Straits agency vessel transit operation' },
+  { src: '/images/services/straits-agency/10.jpg', alt: 'Turkish Straits maritime traffic coordination' },
+  { src: '/images/services/straits-agency/11.jpg', alt: 'Vessel navigation through the strait' },
+  { src: '/images/services/straits-agency/12.jpg', alt: 'Bosphorus passage agency operation', objectPosition: 'center 72%' },
+  { src: '/images/services/straits-agency/13.jpg', alt: 'Strait transit support for vessel', objectPosition: 'center 72%' },
   { src: '/images/services/straits-agency/01.jpg', alt: 'Straits agency transit coordination' },
   { src: '/images/services/straits-agency/02.jpg', alt: 'Vessel transit through Turkish Straits' },
   { src: '/images/services/straits-agency/03.jpg', alt: 'Turkish Straits passage operation' },
@@ -35,7 +40,6 @@ const straitsAgencyImages: SlideImage[] = [
 
 const shipyardAgencyImages: SlideImage[] = [
   { src: '/images/services/shipyard-agency/01.jpg', alt: 'Vessel repair and maintenance at Turkish shipyard' },
-  { src: '/images/services/shipyard-agency/02.jpg', alt: 'Ship drydocking operation' },
   { src: '/images/services/shipyard-agency/03.jpg', alt: 'Propeller and rudder shipyard work' },
   { src: '/images/services/shipyard-agency/04.jpg', alt: 'Vessel hull cleaning and painting' },
   { src: '/images/services/shipyard-agency/05.jpg', alt: 'Shipyard crane and docking support' },
@@ -216,7 +220,7 @@ export const services: ServiceItem[] = [
     slug: 'shipyard-agency',
     title: 'Shipyard Agency Service',
     tagline: 'Dedicated agency support for Turkish shipyard calls.',
-    heroImage: '/images/services/shipyard-agency/01.jpg',
+    heroImage: '/images/services/shipyard-agency/04.jpg',
     images: shipyardAgencyImages,
     overview:
       'NEOS Maritime supports vessels calling Turkish shipyards for repair, maintenance, docking, conversion, or technical attendance. We coordinate the local agency requirements around the yard stay, helping owners and managers keep communication, permissions, crew matters, deliveries, and service providers under control.',
@@ -280,7 +284,7 @@ export const services: ServiceItem[] = [
     slug: 'husbandry-agency',
     title: 'Husbandry Agency Service',
     tagline: 'Everything your vessel needs while in port, handled.',
-    heroImage: '/images/services/husbandry-agency/01.jpg',
+    heroImage: '/images/services/husbandry-agency/02.jpg',
     images: husbandryAgencyImages,
     overview:
       'Our husbandry agency service handles the vessel\'s non-commercial requirements during port, anchorage, strait, or shipyard calls. Whether the request is crew change, medical support, spare parts, provisions, cash-to-master, technical attendance, or urgent local assistance, NEOS Maritime acts as the vessel\'s trusted shoreside operator.',
@@ -344,7 +348,7 @@ export const services: ServiceItem[] = [
     slug: 'protecting-agency',
     title: 'Protecting Agency Service',
     tagline: 'Independent representation for owners and charterers.',
-    heroImage: '/images/services/protecting-agency/01.jpg',
+    heroImage: '/images/services/protecting-agency/02.jpg',
     images: protectingAgencyImages,
     overview:
       'At NEOS Maritime & Shipping Agency, we offer comprehensive Protecting Agency Services to safeguard the interests of shipowners and operators during port calls across Turkey. Acting as your trusted local partner, we ensure your vessel\'s operations run smoothly, efficiently, and in full compliance with regulations. With our deep local expertise and commitment to excellence, NEOS Maritime & Shipping Agency is dedicated to delivering reliable and efficient Protecting Agency Services that give you peace of mind.',

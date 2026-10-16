@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${page.title} — NEOS Maritime`,
     description: page.lead,
     path: `/who-we-are/${page.slug}`,
-    image: '/images/pages/company-hero.jpeg',
+    image: '/images/pages/company-hero.webp',
   })
 }
 

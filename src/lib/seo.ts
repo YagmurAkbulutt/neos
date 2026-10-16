@@ -21,8 +21,8 @@ export const siteConfig = {
   email: 'agency@neosmaritime.com',
   phone: '+90 216 356 06 64',
   address: 'Caddebostan Mah. Omerpasa Sok. No 4 Daire 7, Kadikoy / Istanbul, Turkey',
-  logoPath: '/images/brand/logo.png',
-  defaultImagePath: '/images/pages/home-hero.jpeg',
+  logoPath: '/images/brand/logo.webp',
+  defaultImagePath: '/images/pages/home-hero.webp',
   linkedIn: 'https://www.linkedin.com/company/neos-maritime/',
 } as const
 

@@ -20,7 +20,7 @@ export default function ContactPageClient() {
         {/* Hero Section */}
         <section className="relative h-[60vh] min-h-[480px] flex items-end overflow-hidden">
           <Image
-            src="/images/pages/home-hero.jpeg"
+            src="/images/pages/home-hero.webp"
             alt={tr.nav.contact}
             fill
             priority

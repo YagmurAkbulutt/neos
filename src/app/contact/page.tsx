@@ -7,7 +7,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     'Get in touch with NEOS Maritime & Shipping Agency S.A. Professional ship agency services across all Turkish ports, shipyards, and the Turkish Straits.',
   path: '/contact',
-  image: '/images/pages/home-hero.jpeg',
+  image: '/images/pages/home-hero.webp',
 })
 
 export default function ContactPage() {

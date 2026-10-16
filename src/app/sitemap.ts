@@ -40,7 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
     changeFrequency: 'monthly',
     priority: 0.7,
-    images: [absoluteUrl('/images/pages/company-hero.jpeg')],
+    images: [absoluteUrl('/images/pages/company-hero.webp')],
   }))
 
   return [...staticRoutes, ...serviceRoutes, ...companyRoutes]

@@ -49,7 +49,7 @@ export default function HeroSection() {
         onPlay={() => setVideoLoaded(true)}
         onLoadedData={() => setVideoLoaded(true)}
         onCanPlay={() => setVideoLoaded(true)}
-        className={`absolute inset-0 w-full h-full object-cover object-[25%_center] md:object-center z-10 transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'
+        className={`absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'
           }`}
         aria-hidden="true"
       >

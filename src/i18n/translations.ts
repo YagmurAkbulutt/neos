@@ -18,7 +18,7 @@ const t = {
     },
     hero: {
       title1: 'Your Trusted',
-      titleAccent: 'Ship Agency',
+      titleAccent: 'Shipping Agency',
       title2: 'in Turkey',
       subtitle:
         'Professional ship agency services across all Turkish ports, shipyards, and the Turkish Straits — available 24/7, every day of the year.',

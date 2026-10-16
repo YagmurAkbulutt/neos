@@ -85,6 +85,9 @@ const lsdWorkMaterialsSupplyImages: SlideImage[] = [
   { src: '/images/services/lsd-work-materials-supply/materials-supply-01.webp', alt: 'Materials supply for vessel operations' },
   { src: '/images/services/lsd-work-materials-supply/materials-supply-02.webp', alt: 'Ship materials supply service' },
   { src: '/images/services/lsd-work-materials-supply/materials-supply-03.webp', alt: 'Delivered materials for maritime service' },
+  { src: '/images/services/lsd-work-materials-supply/lsd.webp', alt: 'Lashing securing and dunnaging service' },
+  { src: '/images/services/lsd-work-materials-supply/lsd2.jpg', alt: 'Cargo securing operations and materials' },
+  { src: '/images/services/lsd-work-materials-supply/lsd3.png', alt: 'Vessel cargo lashing and dunnaging' },
 ]
 
 export const services: ServiceItem[] = [
@@ -413,7 +416,7 @@ export const services: ServiceItem[] = [
     slug: 'lsd-work-materials-supply',
     title: 'L/S/D Work and Materials Supply',
     tagline: 'Lashing, securing, dunnaging, and certified cargo support.',
-    heroImage: '/images/services/lsd-work-materials-supply/01.webp',
+    heroImage: '/images/services/lsd-work-materials-supply/lsd_hero.webp',
     images: lsdWorkMaterialsSupplyImages,
     overview:
       'At NEOS Maritime & Shipping Agency, we provide comprehensive Lashing, Securing, and Dunnaging (L/S/D) solutions to ensure the safe handling and transport of your cargo. Partnering with the most experienced and certified teams, we deliver top-quality services tailored to all cargo types at ports across Turkey.',

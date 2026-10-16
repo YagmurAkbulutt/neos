@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useMemo } from 'react'
 import { useLanguage } from '@/context/language'
+import { contactPath } from '@/lib/routes'
 import ScrollReveal from '@/components/ScrollReveal'
 
 function QuoteIcon() {
@@ -46,7 +47,7 @@ export default function TestimonialsSection() {
               </p>
             </div>
             <Link
-              href="#contact"
+              href={contactPath(lang)}
               className="inline-flex items-center justify-center bg-brand hover:bg-brand-dark text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200 w-full sm:w-auto"
             >
               {tr.nav.contact}
@@ -65,15 +66,17 @@ export default function TestimonialsSection() {
                 <article
                   key={`${item.name}-${item.company}-${index}`}
                   aria-hidden={index >= baseTrack.length}
-                  className="flex min-h-[280px] w-[290px] sm:w-[360px] shrink-0 flex-col bg-white border border-gray-100 rounded-2xl p-7 shadow-sm hover:shadow-xl hover:shadow-gray-200/60 transition-shadow duration-300"
+                  className="flex min-h-[300px] w-[290px] sm:w-[360px] shrink-0 flex-col bg-white border border-gray-100 rounded-2xl p-7 shadow-sm hover:shadow-xl hover:shadow-gray-200/60 transition-shadow duration-300"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0">
                     <QuoteIcon />
                   </div>
-                  <p className="text-slate-600 text-[15px] leading-relaxed mb-7">
-                    &quot;{item.quote}&quot;
-                  </p>
-                  <div className="mt-auto pt-5 border-t border-gray-100">
+                  <div className="flex-1 flex flex-col justify-center my-auto py-4">
+                    <p className="text-slate-600 text-[15px] leading-relaxed">
+                      &quot;{item.quote}&quot;
+                    </p>
+                  </div>
+                  <div className="pt-5 border-t border-gray-100 shrink-0">
                     <div className="text-navy font-bold text-sm">{item.name}</div>
                     <div className="text-slate-400 text-xs font-medium mt-1">{item.company}</div>
                   </div>

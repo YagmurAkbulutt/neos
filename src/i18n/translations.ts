@@ -158,19 +158,46 @@ const t = {
         'Direct, practical feedback from the companies that rely on NEOS Maritime for port calls, strait transits, and vessel support in Turkey.',
       items: [
         {
-          quote: 'Customer comment will be placed here.',
-          name: 'Name Surname',
-          company: 'Company / Title',
+          quote:
+            'I would like to thank you for the assistance, you are always able to do some magic in case things are getting urgent :)',
+          name: 'A. Acar',
+          company: 'Managing Director',
         },
         {
-          quote: 'Customer comment will be placed here.',
-          name: 'Name Surname',
-          company: 'Company / Title',
+          quote:
+            'I have some experience with Neos, they can do a lot of things there. Best agency in Turkey and not only in my opinion.',
+          name: 'V. Dovhan',
+          company: 'Captain',
         },
         {
-          quote: 'Customer comment will be placed here.',
-          name: 'Name Surname',
-          company: 'Company / Title',
+          quote:
+            'Always a pleasure to work with honest and capable professionals. Thanks a lot!',
+          name: 'R. Wentzel',
+          company: 'Sen. Superintendent',
+        },
+        {
+          quote:
+            'I would like to take this opportunity to thank you and your agency for the prompt actions and continuous assistance. I would not hesitate to recommend you and your agency to any party seeking any kind of assistance. Thank you once again.',
+          name: 'R. Abeyrathna',
+          company: 'Captain',
+        },
+        {
+          quote:
+            'Amazing! Many thanks for your continuous assistance during our port call. Timely information and reporting are highly appreciated.',
+          name: 'P. Seiferr',
+          company: 'Operation Manager',
+        },
+        {
+          quote:
+            'We were very happy and satisfied with your good service and all the assistance during our port stay. Many thanks again wishing you all the best.',
+          name: 'V. Smirnov',
+          company: 'Captain',
+        },
+        {
+          quote:
+            'Your service is amazing - my colleagues and I are very happy to use your agency service :)',
+          name: 'R. Qian',
+          company: 'Operation Manager',
         },
       ],
     },
@@ -419,19 +446,46 @@ const t = {
         'Türkiye’de liman çağrısı, boğaz geçişi ve gemi destek hizmetleri için NEOS Maritime’a güvenen şirketlerden pratik geri bildirimler.',
       items: [
         {
-          quote: 'Müşteri yorumu buraya gelecektir.',
-          name: 'İsim Soyisim',
-          company: 'Şirket Adı / Görev',
+          quote:
+            'Desteğiniz için teşekkür ederim, işler acil hale geldiğinde her zaman bir sihir yaratmayı başarıyorsunuz :)',
+          name: 'A. Acar',
+          company: 'Managing Director',
         },
         {
-          quote: 'Müşteri yorumu buraya gelecektir.',
-          name: 'İsim Soyisim',
-          company: 'Şirket Adı / Görev',
+          quote:
+            'Neos ile epey deneyimim var, pek çok konunun üstesinden gelebiliyorlar. Sadece bana göre değil, Türkiye’deki en iyi acente.',
+          name: 'V. Dovhan',
+          company: 'Captain',
         },
         {
-          quote: 'Müşteri yorumu buraya gelecektir.',
-          name: 'İsim Soyisim',
-          company: 'Şirket Adı / Görev',
+          quote:
+            'Dürüst ve yetkin profesyonellerle çalışmak her zaman bir zevk. Çok teşekkürler!',
+          name: 'R. Wentzel',
+          company: 'Sen. Superintendent',
+        },
+        {
+          quote:
+            'Hızlı aksiyonlarınız ve kesintisiz desteğiniz için size ve acentenize teşekkür etmek isterim. Destek arayan herkese sizi ve acentenizi tavsiye etmekten çekinmem. Tekrar teşekkürler.',
+          name: 'R. Abeyrathna',
+          company: 'Captain',
+        },
+        {
+          quote:
+            'Harika! Liman ziyaretimiz sırasındaki kesintisiz desteğiniz için çok teşekkürler. Zamanında bilgilendirme ve raporlamalarınız gerçekten takdire şayan.',
+          name: 'P. Seiferr',
+          company: 'Operation Manager',
+        },
+        {
+          quote:
+            'Liman kalışımız süresince sunduğunuz kaliteli hizmet ve tüm destekten çok memnun kaldık. Tekrar çok teşekkür eder, en iyi dileklerimi sunarım.',
+          name: 'V. Smirnov',
+          company: 'Captain',
+        },
+        {
+          quote:
+            'Hizmetiniz muhteşem - çalışma arkadaşlarım ve ben acente hizmetinizi kullanmaktan çok memnunuz :)',
+          name: 'R. Qian',
+          company: 'Operation Manager',
         },
       ],
     },

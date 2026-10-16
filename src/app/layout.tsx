@@ -58,7 +58,7 @@ export default function RootLayout({
   const structuredData = [organizationJsonLd(), websiteJsonLd()]
 
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`} data-scroll-behavior="smooth" suppressHydrationWarning>
       <body suppressHydrationWarning>
         {structuredData.map((entry) => (
           <script

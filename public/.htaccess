@@ -1,0 +1,31 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 301 Redirects (Eski Türkçe URL'ler)
+  RewriteRule ^iletisim/?$ /contact/ [R=301,L]
+  RewriteRule ^biz-kimiz/?$ /who-we-are/about-us/ [R=301,L]
+  RewriteRule ^biz-kimiz/hakkimizda/?$ /who-we-are/about-us/ [R=301,L]
+  RewriteRule ^biz-kimiz/vizyon/?$ /who-we-are/vision/ [R=301,L]
+  RewriteRule ^biz-kimiz/misyon/?$ /who-we-are/mission/ [R=301,L]
+  RewriteRule ^biz-kimiz/degerlerimiz/?$ /who-we-are/values/ [R=301,L]
+  RewriteRule ^hizmetler/?$ /#services [R=301,L]
+  RewriteRule ^hizmetler/liman-acenteligi/?$ /services/port-agency/ [R=301,L]
+  RewriteRule ^hizmetler/bogaz-acenteligi/?$ /services/straits-agency/ [R=301,L]
+  RewriteRule ^hizmetler/tersane-acenteligi/?$ /services/shipyard-agency/ [R=301,L]
+  RewriteRule ^hizmetler/husbandry-acenteligi/?$ /services/husbandry-agency/ [R=301,L]
+  RewriteRule ^hizmetler/koruyucu-acentelik/?$ /services/protecting-agency/ [R=301,L]
+  RewriteRule ^hizmetler/lsd-isleri-ve-malzeme-tedarigi/?$ /services/lsd-work-materials-supply/ [R=301,L]
+
+  # Dosya veya klasör fiziksel olarak varsa doğrudan sun
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # trailing slash olmadan gelen klasör isteklerini dizin index.html'ine eşle
+  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+  RewriteRule ^(.*)/?$ $1/index.html [L]
+
+  # 404 durumu için 404.html varsa göster
+  ErrorDocument 404 /404.html
+</IfModule>
